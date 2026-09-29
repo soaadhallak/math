@@ -1,0 +1,342 @@
+<header class="header">
+  <div class="header-inner">
+
+    <a
+      href="/"
+      id="nav-logo"
+      class="logo"
+      aria-label="Asas Soft"
+    >
+      <img
+        class="logo-img"
+        src="/assets/images/brand/logo.png"
+        alt="Asas Soft"
+        width="160"
+        height="48"
+        decoding="async"
+      />
+    </a>
+
+    <nav
+      id="desktop-navigation"
+      class="nav-desktop"
+      aria-label="<%= t('nav.primary') %>"
+    >
+      <a
+        href="/"
+        class="nav-link<%= typeof activeNav !== 'undefined' && activeNav === 'home' ? ' is-active' : '' %>"
+        <%= typeof activeNav !== 'undefined' && activeNav === 'home' ? 'aria-current="page"' : '' %>
+      >
+        <%= t('nav.home') %>
+      </a>
+
+      <a
+        href="/about"
+        class="nav-link<%= typeof activeNav !== 'undefined' && activeNav === 'about' ? ' is-active' : '' %>"
+        <%= typeof activeNav !== 'undefined' && activeNav === 'about' ? 'aria-current="page"' : '' %>
+      >
+        <%= t('nav.about') %>
+      </a>
+
+      <a
+        href="/services"
+        class="nav-link<%= typeof activeNav !== 'undefined' && activeNav === 'services' ? ' is-active' : '' %>"
+        <%= typeof activeNav !== 'undefined' && activeNav === 'services' ? 'aria-current="page"' : '' %>
+      >
+        <%= t('nav.services') %>
+      </a>
+
+      <a
+        href="/projects"
+        class="nav-link<%= typeof activeNav !== 'undefined' && activeNav === 'projects' ? ' is-active' : '' %>"
+        <%= typeof activeNav !== 'undefined' && activeNav === 'projects' ? 'aria-current="page"' : '' %>
+      >
+        <%= t('nav.projects') %>
+      </a>
+
+      <a
+        href="/contact"
+        class="nav-link<%= typeof activeNav !== 'undefined' && activeNav === 'contact' ? ' is-active' : '' %>"
+        <%= typeof activeNav !== 'undefined' && activeNav === 'contact' ? 'aria-current="page"' : '' %>
+      >
+        <%= t('nav.contact') %>
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang-desktop">
+        <div class="lang-dropdown" id="lang-dropdown">
+
+          <button
+            type="button"
+            id="language-selector-trigger"
+            class="lang-trigger"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+          >
+            <svg class="icon icon-sm" aria-hidden="true">
+              <use href="#icon-globe"></use>
+            </svg>
+
+            <span id="lang-badge" class="lang-badge">
+              <%= (language || 'en').toUpperCase() %>
+            </span>
+
+            <svg
+              class="icon icon-xs chevron-icon"
+              id="lang-chevron"
+              aria-hidden="true"
+            >
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </button>
+
+          <div
+            id="language-dropdown-menu"
+            class="lang-menu"
+            role="listbox"
+            hidden
+          >
+
+            <a
+              href="?lang=en"
+              class="lang-option<%= (language || 'en') === 'en' ? ' is-selected' : '' %>"
+              role="option"
+              aria-selected="<%= (language || 'en') === 'en' ? 'true' : 'false' %>"
+            >
+              <span>English</span>
+
+              <svg
+                class="icon icon-xs check-icon"
+                aria-hidden="true"
+              >
+                <use href="#icon-check"></use>
+              </svg>
+            </a>
+
+            <a
+              href="?lang=ar"
+              class="lang-option<%= language === 'ar' ? ' is-selected' : '' %>"
+              role="option"
+              aria-selected="<%= language === 'ar' ? 'true' : 'false' %>"
+            >
+              <span>العربية</span>
+
+              <svg
+                class="icon icon-xs check-icon"
+                aria-hidden="true"
+              >
+                <use href="#icon-check"></use>
+              </svg>
+            </a>
+
+            <a
+              href="?lang=tr"
+              class="lang-option<%= language === 'tr' ? ' is-selected' : '' %>"
+              role="option"
+              aria-selected="<%= language === 'tr' ? 'true' : 'false' %>"
+            >
+              <span>Türkçe</span>
+
+              <svg
+                class="icon icon-xs check-icon"
+                aria-hidden="true"
+              >
+                <use href="#icon-check"></use>
+              </svg>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button
+      type="button"
+      id="mobile-menu-toggle-btn"
+      class="hamburger"
+      aria-label="<%= t('nav.openMenu') %>"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+    >
+      <span class="hamburger-box" aria-hidden="true">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </span>
+    </button>
+
+  </div>
+
+  <div
+    id="mobile-menu-backdrop"
+    class="mobile-menu-backdrop"
+    hidden
+    aria-hidden="true"
+  ></div>
+
+  <div
+    id="mobile-menu"
+    class="mobile-menu"
+    role="dialog"
+    aria-modal="true"
+    aria-label="<%= t('nav.menu') %>"
+    hidden
+  >
+    <div class="mobile-menu-inner">
+
+      <nav
+        class="mobile-nav-list"
+        aria-label="<%= t('nav.primary') %>"
+      >
+        <a
+          href="/"
+          class="mobile-link<%= typeof activeNav !== 'undefined' && activeNav === 'home' ? ' is-active' : '' %>"
+          <%= typeof activeNav !== 'undefined' && activeNav === 'home' ? 'aria-current="page"' : '' %>
+        >
+          <span class="mobile-link-label">
+            <%= t('nav.home') %>
+          </span>
+        </a>
+
+        <a
+          href="/about"
+          class="mobile-link<%= typeof activeNav !== 'undefined' && activeNav === 'about' ? ' is-active' : '' %>"
+          <%= typeof activeNav !== 'undefined' && activeNav === 'about' ? 'aria-current="page"' : '' %>
+        >
+          <span class="mobile-link-label">
+            <%= t('nav.about') %>
+          </span>
+        </a>
+
+        <a
+          href="/services"
+          class="mobile-link<%= typeof activeNav !== 'undefined' && activeNav === 'services' ? ' is-active' : '' %>"
+          <%= typeof activeNav !== 'undefined' && activeNav === 'services' ? 'aria-current="page"' : '' %>
+        >
+          <span class="mobile-link-label">
+            <%= t('nav.services') %>
+          </span>
+        </a>
+
+        <a
+          href="/projects"
+          class="mobile-link<%= typeof activeNav !== 'undefined' && activeNav === 'projects' ? ' is-active' : '' %>"
+          <%= typeof activeNav !== 'undefined' && activeNav === 'projects' ? 'aria-current="page"' : '' %>
+        >
+          <span class="mobile-link-label">
+            <%= t('nav.projects') %>
+          </span>
+        </a>
+
+        <a
+          href="/contact"
+          class="mobile-link<%= typeof activeNav !== 'undefined' && activeNav === 'contact' ? ' is-active' : '' %>"
+          <%= typeof activeNav !== 'undefined' && activeNav === 'contact' ? 'aria-current="page"' : '' %>
+        >
+          <span class="mobile-link-label">
+            <%= t('nav.contact') %>
+          </span>
+        </a>
+      </nav>
+
+      <div class="mobile-menu-footer">
+
+        <div
+          class="mobile-lang"
+          role="group"
+          aria-labelledby="mobile-lang-label"
+        >
+          <div
+            class="mobile-lang-label"
+            id="mobile-lang-label"
+          >
+            <svg
+              class="icon icon-xs"
+              aria-hidden="true"
+            >
+              <use href="#icon-globe"></use>
+            </svg>
+
+            <span>
+              <%= t('nav.language') %>
+            </span>
+          </div>
+
+          <div
+            class="mobile-lang-grid"
+            role="listbox"
+            aria-labelledby="mobile-lang-label"
+          >
+
+            <a
+              href="?lang=en"
+              class="mobile-lang-btn<%= (language || 'en') === 'en' ? ' is-selected' : '' %>"
+              role="option"
+              aria-selected="<%= (language || 'en') === 'en' ? 'true' : 'false' %>"
+            >
+              <span class="mobile-lang-code">EN</span>
+              <span class="mobile-lang-name">English</span>
+            </a>
+
+            <a
+              href="?lang=ar"
+              class="mobile-lang-btn<%= language === 'ar' ? ' is-selected' : '' %>"
+              role="option"
+              aria-selected="<%= language === 'ar' ? 'true' : 'false' %>"
+            >
+              <span class="mobile-lang-code">AR</span>
+              <span class="mobile-lang-name">العربية</span>
+            </a>
+
+            <a
+              href="?lang=tr"
+              class="mobile-lang-btn<%= language === 'tr' ? ' is-selected' : '' %>"
+              role="option"
+              aria-selected="<%= language === 'tr' ? 'true' : 'false' %>"
+            >
+              <span class="mobile-lang-code">TR</span>
+              <span class="mobile-lang-name">Türkçe</span>
+            </a>
+
+          </div>
+        </div>
+
+        <div class="mobile-menu-meta">
+
+          <a
+            class="mobile-meta-link"
+            href="tel:+963957779365"
+          >
+            <svg
+              class="icon icon-xs"
+              aria-hidden="true"
+            >
+              <use href="#icon-phone"></use>
+            </svg>
+
+            <span>
+              <%= t('footer.phone') %>
+            </span>
+          </a>
+
+          <a
+            class="mobile-meta-link"
+            href="mailto:info@asassoft.com"
+          >
+            <svg
+              class="icon icon-xs"
+              aria-hidden="true"
+            >
+              <use href="#icon-mail"></use>
+            </svg>
+
+            <span><%= company.email %></span>
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</header>

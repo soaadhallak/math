@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /services/
+Disallow: /admin-e2891
+
+Sitemap: https://asassoft.com/sitemap.xml

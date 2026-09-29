@@ -1,0 +1,66 @@
+<div id="contact-modal" class="modal-overlay" hidden>
+        <div class="modal modal-sm">
+          <button type="button" class="modal-close" data-close="contact" aria-label="Close">
+            <svg class="icon"><use href="#icon-x"></use></svg>
+          </button>
+
+          <div id="contact-form-view">
+            <div class="modal-kicker">
+              <svg class="icon icon-xs ice"><use href="#icon-phone"></use></svg>
+              <span data-i18n="contact.kicker">Get In Touch</span>
+            </div>
+            <h2 class="modal-title title-brand" data-i18n="contact.title">Feel Free to Contact Us</h2>
+            <p class="modal-sub" data-i18n="contact.subtitle">We develop smart solutions for the future of your business. Let's discuss how we can help.</p>
+
+            <form id="contact-form" class="contact-form">
+              <div class="field">
+                <label for="contact-name" data-i18n="contact.name">Your Name</label>
+                <input id="contact-name" type="text" required data-i18n-placeholder="contact.namePh" placeholder="Your Name" />
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="contact-email" data-i18n="contact.email">Email</label>
+                  <input id="contact-email" type="email" required placeholder="name@company.com" />
+                </div>
+                <div class="field">
+                  <label for="contact-phone" data-i18n="contact.phone">Phone</label>
+                  <input id="contact-phone" type="tel" placeholder="+963 ..." />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="contact-service" data-i18n="contact.service">Service</label>
+                <select id="contact-service">
+                  <option value="Web Development" data-i18n="contact.optWeb">Web &amp; Platform Development</option>
+                  <option value="Mobile App" data-i18n="contact.optMobile">Mobile Applications</option>
+                  <option value="Custom ERP" data-i18n="contact.optErp">Custom ERP &amp; Business Systems</option>
+                  <option value="UI/UX Design" data-i18n="contact.optUi">UI/UX Design</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="contact-details" data-i18n="contact.details">Project Details</label>
+                <textarea id="contact-details" rows="2" data-i18n-placeholder="contact.detailsPh" placeholder="Tell us about your requirements..."></textarea>
+              </div>
+
+              <div class="modal-actions">
+                <button type="button" class="btn-ghost" data-close="contact" data-i18n="contact.cancel">Cancel</button>
+                <button type="submit" class="btn-brand btn-sm">
+                  <svg class="icon icon-xs"><use href="#icon-send"></use></svg>
+                  <span data-i18n="contact.send">Send Message</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div id="contact-success-view" class="success-view" hidden>
+            <div class="success-icon">
+              <svg class="icon icon-md ice"><use href="#icon-check-circle"></use></svg>
+            </div>
+            <h3 class="success-title title-brand" data-i18n="contact.successTitle">Message Received</h3>
+            <p class="success-text" data-i18n="contact.successText">Thank you for reaching out to Asas Soft. We will get back to you shortly.</p>
+            <button type="button" class="btn-brand btn-sm" id="contact-done-btn" data-i18n="contact.done">Done</button>
+          </div>
+        </div>
+      </div>

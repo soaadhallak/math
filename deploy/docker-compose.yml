@@ -1,0 +1,41 @@
+# MySQL + phpMyAdmin (localhost only)
+# Usage: docker compose up -d
+# phpMyAdmin: http://localhost:8080 (on the server, or via SSH tunnel)
+# MySQL: 127.0.0.1:3306 (on the server, or via SSH tunnel)
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-dbms
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 69a5eb5e-1878-8392-b50c-93ba2f9881d4
+    ports:
+      - "127.0.0.1:3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-p69a5eb5e-1878-8392-b50c-93ba2f9881d4"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: 69a5eb5e-1878-8392-b50c-93ba2f9881d4
+      UPLOAD_LIMIT: 64M
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+volumes:
+  mysql_data:

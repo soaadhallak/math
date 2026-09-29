@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 352" fill="none" aria-hidden="true">
+  <style>
+    .shield { animation: float 3.8s ease-in-out infinite; }
+    .lock { animation: pulse 2.2s ease-in-out infinite; }
+    .node { animation: blink 2.2s ease-in-out infinite; }
+    .node-b { animation: blink 2.2s ease-in-out 0.45s infinite; }
+    .scan { animation: scan 2.8s ease-in-out infinite; }
+    .alert { animation: blink 1.5s ease-in-out infinite; }
+    .perimeter { stroke-dasharray: 7 4; animation: dash 5.5s linear infinite; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+    @keyframes scan {
+      0%, 100% { transform: translateY(0); opacity: 0.2; }
+      50% { transform: translateY(34px); opacity: 0.95; }
+    }
+    @keyframes dash {
+      to { stroke-dashoffset: -110; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .shield, .lock, .node, .node-b, .scan, .alert, .perimeter { animation: none !important; }
+    }
+  </style>
+  <rect width="560" height="352" rx="8" fill="#060912"/>
+  <rect x="12" y="12" width="260" height="328" rx="6" fill="#0c1222" stroke="#1e3a5f" stroke-width="1.5"/>
+  <rect x="280" y="12" width="268" height="158" rx="6" fill="#0c1222" stroke="#1e3a5f" stroke-width="1.5"/>
+  <rect x="280" y="182" width="268" height="158" rx="6" fill="#0c1222" stroke="#1e3a5f" stroke-width="1.5"/>
+  <g class="shield">
+    <path d="M142 56 L220 88 L220 180 C220 220 142 248 142 248 C142 248 64 220 64 180 L64 88 Z" fill="#121a2e" stroke="#60a5fa" stroke-width="2" stroke-opacity="0.7"/>
+    <path d="M142 80 L196 104 L196 172 C196 200 142 220 142 220 C142 220 88 200 88 172 L88 104 Z" fill="#0a101c" stroke="#2a4060" stroke-width="1"/>
+    <g class="lock">
+      <rect x="124" y="148" width="36" height="32" rx="4" fill="#151d32" stroke="#60a5fa" stroke-width="1.5"/>
+      <path d="M132 148 L132 132 C132 120 152 120 152 132 L152 148" stroke="#60a5fa" stroke-width="2" fill="none"/>
+      <circle cx="142" cy="164" r="5" fill="#60a5fa" opacity="0.7"/>
+      <line x1="142" y1="169" x2="142" y2="174" stroke="#60a5fa" stroke-width="1.5" opacity="0.7"/>
+    </g>
+  </g>
+  <g stroke="#2a4060" stroke-width="1">
+    <line x1="36" y1="268" x2="100" y2="268"/><line x1="100" y1="268" x2="100" y2="240"/>
+    <line x1="184" y1="268" x2="248" y2="268"/><line x1="184" y1="268" x2="184" y2="240"/>
+    <line x1="100" y1="240" x2="184" y2="240"/>
+  </g>
+  <circle class="node" cx="100" cy="268" r="4" fill="#1a2540" stroke="#60a5fa" stroke-width="1"/>
+  <circle class="node-b" cx="184" cy="268" r="4" fill="#1a2540" stroke="#60a5fa" stroke-width="1"/>
+  <circle class="node" cx="142" cy="240" r="5" fill="#151d32" stroke="#60a5fa" stroke-width="1.2"/>
+  <g stroke="#243049" stroke-width="0.5" opacity="0.5">
+    <line x1="36" y1="280" x2="248" y2="280"/><line x1="36" y1="296" x2="248" y2="296"/>
+    <line x1="36" y1="312" x2="248" y2="312"/><line x1="60" y1="268" x2="60" y2="328"/>
+    <line x1="100" y1="268" x2="100" y2="328"/><line x1="140" y1="268" x2="140" y2="328"/>
+    <line x1="180" y1="268" x2="180" y2="328"/><line x1="220" y1="268" x2="220" y2="328"/>
+  </g>
+  <line class="scan" x1="40" y1="276" x2="244" y2="276" stroke="#60a5fa" stroke-width="2"/>
+  <rect x="300" y="36" width="216" height="120" rx="4" fill="#0a101c" stroke="#2a4060" stroke-width="1"/>
+  <rect class="perimeter" x="316" y="52" width="184" height="88" rx="2" fill="none" stroke="#60a5fa" stroke-width="1.2" stroke-opacity="0.55"/>
+  <circle class="node" cx="340" cy="76" r="5" fill="#121a2e" stroke="#60a5fa" stroke-width="1"/>
+  <circle class="node-b" cx="408" cy="68" r="6" fill="#151d32" stroke="#60a5fa" stroke-width="1.2"/>
+  <circle cx="476" cy="88" r="5" fill="#121a2e" stroke="#2a4060" stroke-width="1"/>
+  <circle cx="368" cy="120" r="5" fill="#121a2e" stroke="#2a4060" stroke-width="1"/>
+  <circle class="node" cx="448" cy="124" r="7" fill="#1a2540" stroke="#60a5fa" stroke-width="1.5"/>
+  <line x1="340" y1="76" x2="408" y2="68" stroke="#60a5fa" stroke-width="1" opacity="0.4"/>
+  <line x1="408" y1="68" x2="476" y2="88" stroke="#60a5fa" stroke-width="1" opacity="0.35"/>
+  <line x1="408" y1="68" x2="448" y2="124" stroke="#60a5fa" stroke-width="1" opacity="0.3"/>
+  <line x1="340" y1="76" x2="368" y2="120" stroke="#2a4060" stroke-width="1"/>
+  <rect x="296" y="200" width="240" height="112" rx="4" fill="#121a2e" stroke="#2a4060" stroke-width="1"/>
+  <rect class="alert" x="308" y="212" width="8" height="8" rx="2" fill="#60a5fa"/>
+  <rect x="322" y="213" width="100" height="6" rx="2" fill="#243049"/>
+  <rect x="308" y="232" width="8" height="8" rx="2" fill="#3d4a62"/>
+  <rect x="322" y="233" width="80" height="6" rx="2" fill="#1a2540"/>
+  <rect x="308" y="252" width="8" height="8" rx="2" fill="#3d4a62"/>
+  <rect x="322" y="253" width="120" height="6" rx="2" fill="#1a2540"/>
+  <rect class="alert" x="308" y="272" width="8" height="8" rx="2" fill="#60a5fa"/>
+  <rect x="322" y="273" width="90" height="6" rx="2" fill="#243049"/>
+  <line x1="308" y1="292" x2="524" y2="292" stroke="#2a4060" stroke-width="1"/>
+  <text x="316" y="306" fill="#64748b" font-family="system-ui,sans-serif" font-size="8">3 alerts · last scan 2m ago</text>
+</svg>

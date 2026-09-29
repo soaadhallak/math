@@ -1,0 +1,224 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  username     String   @db.VarChar(24) @unique
+  passwordHash String   @db.VarChar(254)
+  noteToSelf   String?  @db.Text
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  sort         Int      @default(0)
+  status       Boolean  @default(true)
+
+  userLogs UserLog[]
+
+  @@map("users")
+}
+
+model UserLog {
+  id                Int      @id @default(autoincrement())
+  userId            Int?
+  endpoint          String   @db.VarChar(500)
+  httpMethod        String   @db.VarChar(10)
+  ipAddress         String?  @db.VarChar(45)
+  requestBody       String?  @db.Text
+  responseStatusCode Int
+  userAgent         String?  @db.VarChar(500)
+  executionTimeMs   Int
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  sort              Int      @default(0)
+  status            Boolean  @default(true)
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@map("user_logs")
+}
+
+model Service {
+  id         Int      @id @default(autoincrement())
+  slug       String   @db.VarChar(100) @unique
+  imageSrc   String   @db.VarChar(254)
+  icon       String?  @db.VarChar(50)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  sort       Int      @default(0)
+  status     Boolean  @default(true)
+  showOnHome Boolean  @default(false)
+
+  translations ServiceTranslation[]
+  medias       ServiceMedia[]
+
+  @@map("services")
+}
+
+model ServiceTranslation {
+  id        Int      @id @default(autoincrement())
+  serviceId Int
+  locale    String   @db.Char(2)
+  field     String   @db.VarChar(80)
+  value     String   @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  sort      Int      @default(0)
+  status    Boolean  @default(true)
+
+  service Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@unique([serviceId, locale, field])
+  @@map("service_translations")
+}
+
+model ServiceMedia {
+  id        Int      @id @default(autoincrement())
+  serviceId Int
+  key       String   @db.VarChar(50)
+  isVideo   Boolean  @default(false)
+  src       String   @db.VarChar(254)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  sort      Int      @default(0)
+  status    Boolean  @default(true)
+
+  service Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@map("service_medias")
+}
+
+model ProjectCategory {
+  id        Int      @id @default(autoincrement())
+  slug      String   @db.VarChar(100) @unique
+  imageSrc  String?  @db.VarChar(254)
+  icon      String?  @db.VarChar(50)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  sort      Int      @default(0)
+  status    Boolean  @default(true)
+
+  translations ProjectCategoryTranslation[]
+  projects     Project[]
+
+  @@map("project_categories")
+}
+
+model ProjectCategoryTranslation {
+  id                Int      @id @default(autoincrement())
+  projectCategoryId Int
+  locale            String   @db.Char(2)
+  field             String   @db.VarChar(25)
+  value             String   @db.VarChar(500)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  sort              Int      @default(0)
+  status            Boolean  @default(true)
+
+  projectCategory ProjectCategory @relation(fields: [projectCategoryId], references: [id], onDelete: Cascade)
+
+  @@unique([projectCategoryId, locale, field])
+  @@map("project_category_translations")
+}
+
+model Project {
+  id                Int      @id @default(autoincrement())
+  projectCategoryId Int
+  slug              String   @db.VarChar(100) @unique
+  imageSrc          String   @db.VarChar(254)
+  icon              String?  @db.VarChar(50)
+  externalUrl       String?  @db.VarChar(254)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  sort              Int      @default(0)
+  status            Boolean  @default(true)
+  isFeatured        Boolean  @default(false)
+
+  projectCategory ProjectCategory @relation(fields: [projectCategoryId], references: [id], onDelete: Restrict)
+  translations    ProjectTranslation[]
+  medias          ProjectMedia[]
+
+  @@map("projects")
+}
+
+model ProjectTranslation {
+  id        Int      @id @default(autoincrement())
+  projectId Int
+  locale    String   @db.Char(2)
+  field     String   @db.VarChar(80)
+  value     String   @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  sort      Int      @default(0)
+  status    Boolean  @default(true)
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@unique([projectId, locale, field])
+  @@map("project_translations")
+}
+
+model ProjectMedia {
+  id        Int      @id @default(autoincrement())
+  projectId Int
+  key       String   @db.VarChar(50)
+  isVideo   Boolean  @default(false)
+  src       String   @db.VarChar(254)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  sort      Int      @default(0)
+  status    Boolean  @default(true)
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@map("project_medias")
+}
+
+model ReferenceLogo {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(50)
+  url       String?  @db.VarChar(254)
+  imageSrc  String   @db.VarChar(254)
+  alt       String   @db.VarChar(50)
+  sort      Int      @default(0)
+  status    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("reference_logos")
+}
+
+model Document {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(50)
+  src       String   @db.VarChar(254)
+  createdAt DateTime @default(now())
+  updatedAt DateTime?
+  sort      Int      @default(0)
+
+  @@map("documents")
+}
+
+model Message {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(120)
+  email     String   @db.VarChar(254)
+  phone     String?  @db.VarChar(50)
+  subject   String   @db.VarChar(254)
+  message   String   @db.Text
+  ipAddress String?  @db.VarChar(45)
+  userAgent String?  @db.VarChar(500)
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([createdAt])
+  @@index([isRead])
+  @@map("messages")
+}

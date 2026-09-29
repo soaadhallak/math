@@ -1,0 +1,37 @@
+<div
+  id="page-loader"
+  class="page-loader"
+  role="status"
+  aria-live="polite"
+  aria-busy="true"
+  aria-label="<%= typeof t === 'function' ? t('common.loading') : 'Loading' %>"
+>
+  <div class="page-loader__atmosphere" aria-hidden="true">
+    <span class="page-loader__glow"></span>
+  </div>
+
+  <div class="page-loader__stage">
+    <div class="page-loader__brand" id="page-loader-brand">
+      <img
+        class="page-loader__logo"
+        id="page-loader-logo"
+        src="<%= company.logoPath %>"
+        alt="<%= company.name %>"
+        width="180"
+        height="48"
+        decoding="async"
+        fetchpriority="high"
+      />
+    </div>
+
+    <div class="page-loader__meter" aria-hidden="true">
+      <div class="page-loader__track">
+        <div class="page-loader__bar" id="page-loader-bar"></div>
+      </div>
+    </div>
+
+    <p class="page-loader__label" id="page-loader-label">
+      <%= typeof t === 'function' ? t('common.loading') : 'Loading' %>
+    </p>
+  </div>
+</div>

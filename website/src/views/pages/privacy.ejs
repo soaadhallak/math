@@ -1,0 +1,35 @@
+<main class="about-main legal-main" id="privacy-main">
+  <section class="about-hero legal-hero" aria-labelledby="privacy-hero-title">
+    <div class="about-hero-glow" aria-hidden="true">
+      <span class="about-beam about-beam--tl"></span>
+      <span class="about-beam about-beam--tr"></span>
+      <span class="about-beam about-beam--mid"></span>
+      <span class="about-beam about-beam--bl"></span>
+    </div>
+    <div class="about-shell about-hero-content">
+      <span class="about-badge"><%= t('footer.privacyPolicy') %></span>
+        <h1 id="privacy-hero-title" class="about-hero-title"><%= t('privacy.pageTitle') %></h1>
+    </div>
+  </section>
+
+  <div class="about-shell legal-shell">
+    <article class="legal-article">
+      <p class="legal-lead"><%= t('privacy.intro') %></p>
+
+      <div class="legal-doc">
+        <% for (var i = 1; i <= 10; i++) {
+          var sectionTitle = t('privacy.section' + i + 'Title').replace(/^\d+\.\s*/, '');
+        %>
+        <section class="legal-section" id="privacy-section-<%= i %>">
+          <h2>
+            <span class="legal-num"><%= i %></span>
+            <span class="legal-heading"><%= sectionTitle %></span>
+          </h2>
+          <p><%= t('privacy.section' + i + 'Content') %></p>
+        </section>
+        <% } %>
+      </div>
+    </article>
+  
+  </div>
+</main>

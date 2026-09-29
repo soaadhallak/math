@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 352" fill="none" aria-hidden="true">
+  <style>
+    .float-a { animation: float-a 4s ease-in-out infinite; }
+    .float-b { animation: float-b 4.8s ease-in-out infinite; }
+    .pulse { animation: pulse 2.8s ease-in-out infinite; }
+    .bars rect { transform-box: fill-box; transform-origin: bottom center; }
+    .bar-1 { animation: bar 2.4s ease-in-out infinite; }
+    .bar-2 { animation: bar 2.4s ease-in-out 0.15s infinite; }
+    .bar-3 { animation: bar 2.4s ease-in-out 0.3s infinite; }
+    .bar-4 { animation: bar 2.4s ease-in-out 0.45s infinite; }
+    .draw { stroke-dasharray: 10 8; animation: dash 4.5s linear infinite; }
+    .chrome { animation: chrome 3.2s ease-in-out infinite; }
+    @keyframes float-a {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(2px, -8px); }
+    }
+    @keyframes float-b {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-3px, 6px); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 1; }
+    }
+    @keyframes bar {
+      0%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(0.68); }
+    }
+    @keyframes dash {
+      to { stroke-dashoffset: -120; }
+    }
+    @keyframes chrome {
+      0%, 100% { opacity: 0.55; }
+      50% { opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .float-a, .float-b, .pulse, .bar-1, .bar-2, .bar-3, .bar-4, .draw, .chrome {
+        animation: none !important;
+      }
+    }
+  </style>
+  <rect width="560" height="352" rx="8" fill="#060912"/>
+  <rect x="12" y="12" width="260" height="328" rx="6" fill="#0c1222" stroke="#1e3a5f" stroke-width="1.5"/>
+  <rect x="280" y="12" width="268" height="158" rx="6" fill="#0c1222" stroke="#1e3a5f" stroke-width="1.5"/>
+  <rect x="280" y="182" width="268" height="158" rx="6" fill="#0c1222" stroke="#1e3a5f" stroke-width="1.5"/>
+  <rect x="28" y="28" width="228" height="18" rx="4" fill="#121a2e"/>
+  <g class="chrome">
+    <circle cx="40" cy="37" r="3" fill="#60a5fa"/>
+    <circle cx="52" cy="37" r="3" fill="#3d4a62"/>
+    <circle cx="64" cy="37" r="3" fill="#3d4a62"/>
+  </g>
+  <rect x="80" y="32" width="160" height="10" rx="3" fill="#1a2540"/>
+  <rect x="36" y="58" width="212" height="14" rx="2" fill="#1a2540"/>
+  <rect x="36" y="82" width="140" height="8" rx="2" fill="#243049"/>
+  <rect x="36" y="98" width="180" height="8" rx="2" fill="#243049"/>
+  <rect x="36" y="118" width="96" height="72" rx="4" fill="#121a2e" stroke="#2a4060" stroke-width="1"/>
+  <rect x="144" y="118" width="104" height="32" rx="3" fill="#121a2e" stroke="#2a4060" stroke-width="1"/>
+  <rect x="144" y="158" width="104" height="32" rx="3" fill="#121a2e" stroke="#2a4060" stroke-width="1"/>
+  <rect x="36" y="202" width="212" height="56" rx="4" fill="#121a2e" stroke="#2a4060" stroke-width="1"/>
+  <g class="pulse">
+    <line x1="48" y1="218" x2="120" y2="218" stroke="#60a5fa" stroke-width="1.5"/>
+    <line x1="48" y1="232" x2="180" y2="232" stroke="#60a5fa" stroke-width="1.5" stroke-opacity="0.7"/>
+    <line x1="48" y1="246" x2="150" y2="246" stroke="#60a5fa" stroke-width="1.5" stroke-opacity="0.5"/>
+  </g>
+  <g fill="#2a4060" opacity="0.6">
+    <circle cx="48" cy="278" r="1.5"/><circle cx="62" cy="278" r="1.5"/><circle cx="76" cy="278" r="1.5"/>
+    <circle cx="90" cy="278" r="1.5"/><circle cx="104" cy="278" r="1.5"/><circle cx="118" cy="278" r="1.5"/>
+    <circle cx="48" cy="292" r="1.5"/><circle cx="62" cy="292" r="1.5"/><circle cx="76" cy="292" r="1.5"/>
+    <circle cx="90" cy="292" r="1.5"/><circle cx="104" cy="292" r="1.5"/><circle cx="118" cy="292" r="1.5"/>
+  </g>
+  <g class="float-a">
+    <path d="M320 110 L380 78 L440 110 L380 142 Z" fill="#121a2e" stroke="#60a5fa" stroke-width="1.2" stroke-opacity="0.5"/>
+    <path d="M380 142 L380 178 L440 146 L440 110 Z" fill="#0f1628" stroke="#2a4060" stroke-width="1"/>
+    <path d="M320 110 L320 146 L380 178 L380 142 Z" fill="#151d32" stroke="#2a4060" stroke-width="1"/>
+    <line x1="380" y1="78" x2="380" y2="142" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.4"/>
+  </g>
+  <g class="float-b">
+    <path d="M350 95 L410 63 L470 95 L410 127 Z" fill="#121a2e" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.35"/>
+  </g>
+  <polyline class="draw" points="300,300 330,270 360,285 390,240 420,255 450,220 480,235 520,200" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85"/>
+  <line x1="300" y1="320" x2="520" y2="320" stroke="#2a4060" stroke-width="1"/>
+  <line x1="300" y1="200" x2="300" y2="320" stroke="#2a4060" stroke-width="1"/>
+  <g class="bars">
+    <rect class="bar-1" x="310" y="305" width="16" height="15" rx="2" fill="#1a2540"/>
+    <rect class="bar-2" x="350" y="290" width="16" height="30" rx="2" fill="#243049"/>
+    <rect class="bar-3" x="390" y="275" width="16" height="45" rx="2" fill="#60a5fa" opacity="0.55"/>
+    <rect class="bar-4" x="430" y="255" width="16" height="65" rx="2" fill="#60a5fa" opacity="0.8"/>
+  </g>
+</svg>

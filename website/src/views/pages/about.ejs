@@ -1,0 +1,490 @@
+<main class="about-main" id="about-main">
+
+  <!-- Hero: glow soft-bleeds into Mission -->
+  <section
+    class="about-hero"
+    aria-labelledby="about-hero-title"
+  >
+    <div
+      class="about-hero-glow"
+      aria-hidden="true"
+    >
+      <span class="about-beam about-beam--tl"></span>
+      <span class="about-beam about-beam--tr"></span>
+      <span class="about-beam about-beam--mid"></span>
+      <span class="about-beam about-beam--bl"></span>
+    </div>
+
+    <div class="about-shell about-hero-content">
+      <span class="about-badge">
+        <%= t('about.badge') %>
+      </span>
+
+      <h1
+        id="about-hero-title"
+        class="about-hero-title"
+      >
+        <%- t('about.heroTitle') %>
+      </h1>
+
+      <p class="about-hero-sub">
+        <%= t('about.heroSub') %>
+      </p>
+    </div>
+  </section>
+
+
+  <div class="about-shell">
+
+    <!-- Mission -->
+    <section
+      class="about-mission"
+      aria-labelledby="about-mission-title"
+    >
+      <div class="about-mission-copy">
+
+        <span class="about-badge">
+          <%= t('about.missionBadge') %>
+        </span>
+
+        <h2
+          id="about-mission-title"
+          class="about-mission-title"
+        >
+          <span class="about-mission-title-lead">
+            <%= t('about.missionLead') %>
+          </span>
+
+          <span class="about-mission-title-mute">
+            <%= t('about.missionMute') %>
+          </span>
+        </h2>
+
+        <p class="about-mission-text">
+          <%= t('about.missionText') %>
+        </p>
+
+      </div>
+
+
+      <div class="about-mission-media">
+        <div class="about-mission-frame">
+
+          <!-- Replace with the final mission image when ready -->
+          <img
+            class="about-mission-photo"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt="<%= t('about.missionImageAlt') %>"
+            width="640"
+            height="800"
+          />
+
+        </div>
+      </div>
+    </section>
+
+
+    <% if (
+      typeof referenceLogos !== "undefined" &&
+      referenceLogos &&
+      referenceLogos.length
+    ) { %>
+
+      <!-- Partners -->
+      <section
+        class="about-partners"
+        aria-labelledby="about-partners-label"
+      >
+
+        <p
+          id="about-partners-label"
+          class="about-partners-label"
+        >
+          <%= t('about.trustedBy') %>
+        </p>
+
+
+        <div class="about-partners-rail">
+          <div class="about-partners-track">
+
+            <!-- First group -->
+            <div class="about-partners-group">
+
+              <% referenceLogos.forEach(function (logo) { %>
+
+                <% if (logo.url) { %>
+
+                  <a
+                    class="about-partner"
+                    href="<%= logo.url %>"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="<%= logo.imageSrc %>"
+                      alt="<%= logo.alt || logo.name %>"
+                      width="24"
+                      height="24"
+                      loading="lazy"
+                      decoding="async"
+                    />
+
+                    <span class="about-partner__name">
+                      <%= logo.name %>
+                    </span>
+                  </a>
+
+                <% } else { %>
+
+                  <span class="about-partner">
+                    <img
+                      src="<%= logo.imageSrc %>"
+                      alt="<%= logo.alt || logo.name %>"
+                      width="24"
+                      height="24"
+                      loading="lazy"
+                      decoding="async"
+                    />
+
+                    <span class="about-partner__name">
+                      <%= logo.name %>
+                    </span>
+                  </span>
+
+                <% } %>
+
+              <% }); %>
+
+            </div>
+
+
+            <!-- Duplicate group for infinite marquee -->
+            <div
+              class="about-partners-group"
+              aria-hidden="true"
+            >
+
+              <% referenceLogos.forEach(function (logo) { %>
+
+                <% if (logo.url) { %>
+
+                  <a
+                    class="about-partner"
+                    href="<%= logo.url %>"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    tabindex="-1"
+                  >
+                    <img
+                      src="<%= logo.imageSrc %>"
+                      alt=""
+                      width="24"
+                      height="24"
+                      loading="lazy"
+                      decoding="async"
+                    />
+
+                    <span class="about-partner__name">
+                      <%= logo.name %>
+                    </span>
+                  </a>
+
+                <% } else { %>
+
+                  <span class="about-partner">
+                    <img
+                      src="<%= logo.imageSrc %>"
+                      alt=""
+                      width="24"
+                      height="24"
+                      loading="lazy"
+                      decoding="async"
+                    />
+
+                    <span class="about-partner__name">
+                      <%= logo.name %>
+                    </span>
+                  </span>
+
+                <% } %>
+
+              <% }); %>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    <% } %>
+
+  </div>
+
+
+  <!-- Core values -->
+  <section
+    class="about-values"
+    aria-labelledby="about-values-title"
+  >
+
+    <div
+      class="about-values-glow"
+      aria-hidden="true"
+    >
+      <span class="about-beam about-beam--tl"></span>
+      <span class="about-beam about-beam--tr"></span>
+      <span class="about-beam about-beam--mid"></span>
+      <span class="about-beam about-beam--bl"></span>
+    </div>
+
+
+    <div class="about-shell about-values-inner">
+
+      <span class="about-badge">
+        <%= t('about.valuesBadge') %>
+      </span>
+
+      <h2
+        id="about-values-title"
+        class="about-values-title"
+      >
+        <%= t('about.valuesTitle') %>
+      </h2>
+
+      <p class="about-values-sub">
+        <%= t('about.valuesSub') %>
+      </p>
+
+
+      <div class="about-values-grid">
+
+        <article class="about-value-card">
+          <svg
+            class="about-value-icon"
+            aria-hidden="true"
+          >
+            <use href="#icon-zap"></use>
+          </svg>
+
+          <h3 class="about-value-title">
+            <%= t('about.v1Title') %>
+          </h3>
+
+          <p class="about-value-text">
+            <%= t('about.v1Text') %>
+          </p>
+        </article>
+
+
+        <article class="about-value-card">
+          <svg
+            class="about-value-icon"
+            aria-hidden="true"
+          >
+            <use href="#icon-plug"></use>
+          </svg>
+
+          <h3 class="about-value-title">
+            <%= t('about.v2Title') %>
+          </h3>
+
+          <p class="about-value-text">
+            <%= t('about.v2Text') %>
+          </p>
+        </article>
+
+
+        <article class="about-value-card">
+          <svg
+            class="about-value-icon"
+            aria-hidden="true"
+          >
+            <use href="#icon-leaf"></use>
+          </svg>
+
+          <h3 class="about-value-title">
+            <%= t('about.v3Title') %>
+          </h3>
+
+          <p class="about-value-text">
+            <%= t('about.v3Text') %>
+          </p>
+        </article>
+
+
+        <article class="about-value-card">
+          <svg
+            class="about-value-icon"
+            aria-hidden="true"
+          >
+            <use href="#icon-users"></use>
+          </svg>
+
+          <h3 class="about-value-title">
+            <%= t('about.v4Title') %>
+          </h3>
+
+          <p class="about-value-text">
+            <%= t('about.v4Text') %>
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+    <!-- Team -->
+  <!-- <section class="about-team" aria-labelledby="about-team-title">
+    <div class="about-shell about-team-inner">
+      <span class="about-badge">Our Team</span>
+      <h2 id="about-team-title" class="about-team-title">It's all about the people</h2>
+      <p class="about-team-sub">The team behind our product</p>
+
+      <div class="about-team-grid">
+        <article class="about-team-card">
+          <img
+            class="about-team-photo"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt=""
+            width="320"
+            height="280"
+          />
+          <h3 class="about-team-name">Liam Thompson</h3>
+          <p class="about-team-role">CEO</p>
+        </article>
+
+        <article class="about-team-card">
+          <img
+            class="about-team-photo"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt=""
+            width="320"
+            height="280"
+          />
+          <h3 class="about-team-name">Isabella Rodriguez</h3>
+          <p class="about-team-role">Product Designer</p>
+        </article>
+
+        <article class="about-team-card">
+          <img
+            class="about-team-photo"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt=""
+            width="320"
+            height="280"
+          />
+          <h3 class="about-team-name">Ethan Baker</h3>
+          <p class="about-team-role">Software Engineer</p>
+        </article>
+
+        <article class="about-team-card">
+          <img
+            class="about-team-photo"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt=""
+            width="320"
+            height="280"
+          />
+          <h3 class="about-team-name">Ava Williams</h3>
+          <p class="about-team-role">Marketing Specialist</p>
+        </article>
+
+        <article class="about-team-card">
+          <img
+            class="about-team-photo"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt=""
+            width="320"
+            height="280"
+          />
+          <h3 class="about-team-name">Noah Davis</h3>
+          <p class="about-team-role">Data Analyst</p>
+        </article>
+
+        <article class="about-team-card">
+          <img
+            class="about-team-photo"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt=""
+            width="320"
+            height="280"
+          />
+          <h3 class="about-team-name">Sophia Martinez</h3>
+          <p class="about-team-role">UX Designer</p>
+        </article>
+
+        <article class="about-team-card">
+          <img
+            class="about-team-photo"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt=""
+            width="320"
+            height="280"
+          />
+          <h3 class="about-team-name">Lucas Anderson</h3>
+          <p class="about-team-role">Project Manager</p>
+        </article>
+
+        <article class="about-team-card">
+          <img
+            class="about-team-photo"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt=""
+            width="320"
+            height="280"
+          />
+          <h3 class="about-team-name">Mia Taylor</h3>
+          <p class="about-team-role">Sales Manager</p>
+        </article>
+
+        <article class="about-team-card">
+          <img
+            class="about-team-photo"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt=""
+            width="320"
+            height="280"
+          />
+          <h3 class="about-team-name">Oliver Clark</h3>
+          <p class="about-team-role">Software Developer</p>
+        </article>
+
+        <article class="about-team-card">
+          <img
+            class="about-team-photo"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt=""
+            width="320"
+            height="280"
+          />
+          <h3 class="about-team-name">Amelia Lewis</h3>
+          <p class="about-team-role">Content Strategist</p>
+        </article>
+
+        <article class="about-team-card">
+          <img
+            class="about-team-photo"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt=""
+            width="320"
+            height="280"
+          />
+          <h3 class="about-team-name">Elijah Harris</h3>
+          <p class="about-team-role">Quality Assurance</p>
+        </article>
+
+        <article class="about-team-card">
+          <img
+            class="about-team-photo"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt=""
+            width="320"
+            height="280"
+          />
+          <h3 class="about-team-name">Harper Walker</h3>
+          <p class="about-team-role">Business Analyst</p>
+        </article>
+      </div>
+    </div>
+  </section> -->
+</main>

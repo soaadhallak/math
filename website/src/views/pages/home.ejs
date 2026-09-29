@@ -1,0 +1,868 @@
+<html
+  lang="<%= language %>"
+  dir="<%= language === 'ar' ? 'rtl' : 'ltr' %>"
+>
+<section id="flight-stage" class="flight-stage">
+        <div class="flight-viewport" id="section-hero">
+          <div id="hero-background-video-container" class="hero-bg">
+            <video
+              id="hero-background-video"
+              class="is-active"
+              autoplay
+              muted
+              playsinline
+              webkit-playsinline
+              preload="auto"
+              aria-hidden="true"
+              tabindex="-1"
+            >
+              <source
+                src="/assets/videos/hero-mobile-background.mp4"
+                type="video/mp4"
+                media="(max-width: 699px)"
+              />
+              <source
+                src="/assets/videos/hero-background.mp4"
+                type="video/mp4"
+                media="(min-width: 700px)"
+              />
+            </video>
+            <div class="hero-bg-scrim" aria-hidden="true"></div>
+            <div class="hero-glow" aria-hidden="true">
+              <span class="hero-beam hero-beam--tl"></span>
+              <span class="hero-beam hero-beam--tr"></span>
+              <span class="hero-beam hero-beam--mid"></span>
+              <span class="hero-beam hero-beam--bl"></span>
+            </div>
+            <div class="vignette vignette-side"></div>
+            <div class="vignette vignette-bottom"></div>
+          </div>
+
+          <div class="vision-stage-bg" id="vision-stage-bg" aria-hidden="true"></div>
+
+          <main class="main" id="hero-main">
+            <div class="main-inner">
+              <div class="hero">
+                <aside class="hero-rail" aria-hidden="true">
+                  <span class="hero-rail-dot"></span>
+                  <span class="hero-rail-line"></span>
+                  <span class="hero-rail-label"><%= t('home.rail') %></span>
+                </aside>
+
+                <div class="hero-copy">
+                  <h1 id="hero-main-heading" class="hero-title fade-1">
+                    <%- t('home.heading') %>
+                  </h1>
+
+                  <p id="hero-subtext" class="hero-sub fade-2">
+                    <span class="hero-sub-full">
+                      <% t('home.subtext') %>
+                    </span>
+                    <span class="hero-sub-mobile">
+                      <%- t('home.subtextMobile') %>
+                    </span>
+                  </p>
+
+                  <div id="hero-cta-group" class="cta-pill fade-3">
+                    <span class="cta-pill-hint"><%= t('home.ctaHint') %></span>
+                    <a href="/contact" id="hero-primary-cta-btn" class="cta-pill-btn">
+                      <span><%= t('home.cta') %></span>
+                    </a>
+                  </div>
+
+                  <div class="hero-status fade-4">
+                    <span class="hero-status-dot" aria-hidden="true"></span>
+                    <span><%= t('home.status') %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+
+          <div class="scroll-hint" aria-hidden="true">
+            <span class="scroll-hint-line"></span>
+          </div>
+        </div>
+      </section>
+
+      <div id="section-vision" class="section-vision" aria-hidden="true">
+        <div class="vision-particles" aria-hidden="true"></div>
+
+        <svg
+          id="vision-connectors"
+          class="vision-connectors"
+          fill="none"
+          aria-hidden="true"
+        ></svg>
+
+        <div class="vision-pedestal" aria-hidden="true">
+          <span class="pedestal-beam"></span>
+          <svg
+            class="pedestal-plate"
+            viewBox="0 0 480 200"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <defs>
+              <radialGradient id="pedestal-pool" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#c8dceb" stop-opacity="0.75" />
+                <stop offset="28%" stop-color="#60a5fa" stop-opacity="0.4" />
+                <stop offset="55%" stop-color="#2f6fa3" stop-opacity="0.16" />
+                <stop offset="100%" stop-color="#1c4f8a" stop-opacity="0" />
+              </radialGradient>
+              <filter
+                id="pedestal-ring-glow"
+                x="-50%"
+                y="-50%"
+                width="200%"
+                height="200%"
+              >
+                <feGaussianBlur in="SourceGraphic" stdDeviation="1.4" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            <ellipse
+              cx="240"
+              cy="128"
+              rx="198"
+              ry="46"
+              fill="url(#pedestal-pool)"
+            />
+            <g
+              fill="none"
+              stroke-linecap="round"
+              filter="url(#pedestal-ring-glow)"
+            >
+              <ellipse
+                cx="240"
+                cy="128"
+                rx="208"
+                ry="50"
+                stroke="rgba(91, 155, 207, 0.38)"
+                stroke-width="1.35"
+              />
+              <ellipse
+                cx="240"
+                cy="128"
+                rx="168"
+                ry="40"
+                stroke="rgba(91, 155, 207, 0.52)"
+                stroke-width="1.45"
+              />
+              <ellipse
+                cx="240"
+                cy="128"
+                rx="124"
+                ry="29.5"
+                stroke="rgba(168, 200, 224, 0.68)"
+                stroke-width="1.55"
+              />
+              <ellipse
+                cx="240"
+                cy="128"
+                rx="78"
+                ry="18.5"
+                stroke="rgba(147, 197, 253, 0.82)"
+                stroke-width="1.7"
+              />
+            </g>
+            <ellipse
+              cx="240"
+              cy="128"
+              rx="22"
+              ry="6"
+              fill="rgba(147, 197, 253, 0.95)"
+              filter="url(#pedestal-ring-glow)"
+            />
+          </svg>
+        </div>
+
+        <h2 class="vision-heading">
+          <span><%= t('home.titleLine1') %></span>
+          <span class="vision-heading-accent"><%= t('home.titleLine2') %></span>
+        </h2>
+
+        <div class="vision-stage">
+          <div id="brain-landing" class="brain-landing" aria-hidden="true"></div>
+        </div>
+
+        <div class="vision-cards">
+        <% (typeof visionServices !== 'undefined' && visionServices ? visionServices : []).forEach(function(row) {
+          var s = row.service;
+          var shortName = s.translations?.find(function(t) { return t.field === 'shortName'; })?.value
+            || s.translations?.find(function(t) { return t.field === 'name'; })?.value
+            || '';
+          var shortDescription = s.translations?.find(function(t) { return t.field === 'shortDescription'; })?.value
+            || s.translations?.find(function(t) { return t.field === 'description'; })?.value
+            || '';
+        %>
+        <a
+          href="/services/<%= s.slug %>"
+          class="vision-card <%= row.cardClass %>"
+          data-connector="<%= row.connector %>"
+        >
+          <span class="vision-card-icon" aria-hidden="true">
+            <svg class="icon icon-sm"><use href="<%= row.iconHref %>"></use></svg>
+          </span>
+          <div class="vision-card-body">
+            <h3 class="vision-card-title"><%= shortName %></h3>
+            <p class="vision-card-text"><%= shortDescription %></p>
+          </div>
+        </a>
+        <% }); %>
+        </div>
+
+        <a href="/services" class="vision-cta">
+          <span><%= t('home.ctaTwo') %></span>
+        </a>
+      </div>
+
+      <div class="vision-dwell" aria-hidden="true"></div>
+
+      <section id="manifest-stage" class="manifest-stage" aria-label="About Asas Soft">
+        <div class="manifest-sticky">
+          <div class="manifest-top-fade" aria-hidden="true"></div>
+          <div class="manifest-bottom-fade" aria-hidden="true"></div>
+          <div
+            class="manifest-progress"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+            aria-label="Section progress"
+          >
+            <span id="manifest-progress-bar" class="manifest-progress-bar"></span>
+          </div>
+          <div id="manifest-inner" class="manifest-inner">
+            <p id="manifest-text" class="manifest-text">
+              <%= t('home.body') %>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-stage" class="why-stage" aria-label="Why Asas Soft">
+        <div class="why-layout">
+          <div class="why-copy">
+            <div class="why-copy-text">
+              <p class="why-kicker"><%= t('home.why.kicker') %></p>
+              <h2 class="why-title">
+                <%- t('home.why.titleHtml') %>
+              </h2>
+            </div>
+            <a href="/contact" class="why-cta"><%= t('home.why.cta') %></a>
+          </div>
+
+          <div class="why-accordion" id="why-accordion" role="tablist" aria-label="Why Asas Soft highlights">
+            <button
+              type="button"
+              class="why-panel why-panel--bars is-open"
+              role="tab"
+              id="why-panel-1"
+              aria-selected="true"
+              data-why-panel="0"
+            >
+              <div class="why-panel-head">
+                <span class="why-panel-title"><%- t('home.why.p1TitleHtml') %></span>
+                <span class="why-panel-index">01</span>
+              </div>
+              <div class="why-panel-body">
+                <div
+                  class="why-panel-stat"
+                  data-why-value="55.46"
+                  data-why-prefix="+"
+                  data-why-suffix="%"
+                  data-why-decimals="2"
+                >
+                  +0.00%
+                </div>
+                <p class="why-panel-desc"><%= t('home.why.p1Desc') %></p>
+              </div>
+              <div class="why-panel-chart why-panel-chart--bars" aria-hidden="true">
+                <div class="why-bars">
+                  <span class="why-bar" style="--h:52%; --i:0"></span>
+                  <span class="why-bar" style="--h:78%; --i:1"></span>
+                  <span class="why-bar" style="--h:58%; --i:2"></span>
+                  <span class="why-bar" style="--h:100%; --i:3"></span>
+                  <span class="why-bar" style="--h:42%; --i:4"></span>
+                  <span class="why-bar" style="--h:28%; --i:5"></span>
+                  <span class="why-bar" style="--h:70%; --i:6"></span>
+                  <span class="why-bar" style="--h:48%; --i:7"></span>
+                </div>
+              </div>
+            </button>
+
+            <button
+              type="button"
+              class="why-panel"
+              role="tab"
+              id="why-panel-2"
+              aria-selected="false"
+              data-why-panel="1"
+            >
+              <div class="why-panel-head">
+                <span class="why-panel-title"><%= t('home.why.p2Title') %></span>
+                <span class="why-panel-index">02</span>
+              </div>
+              <div class="why-panel-body">
+                <div
+                  class="why-panel-stat"
+                  data-why-value="32.46"
+                  data-why-prefix="+"
+                  data-why-suffix="%"
+                  data-why-decimals="2"
+                >
+                  +0.00%
+                </div>
+                <p class="why-panel-desc"><%= t('home.why.p2Desc') %></p>
+              </div>
+              <div class="why-panel-chart" aria-hidden="true">
+                <svg class="why-chart why-chart-area" viewBox="0 0 220 90" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="whyAreaFill2" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="rgba(96,165,250,0.35)" />
+                      <stop offset="100%" stop-color="rgba(96,165,250,0)" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M0 70 C30 62, 45 48, 70 52 C95 56, 110 28, 140 34 C170 40, 190 22, 220 30 L220 90 L0 90 Z"
+                    fill="url(#whyAreaFill2)"
+                  />
+                  <path
+                    d="M0 70 C30 62, 45 48, 70 52 C95 56, 110 28, 140 34 C170 40, 190 22, 220 30"
+                    fill="none"
+                    stroke="rgba(96,165,250,0.7)"
+                    stroke-width="1.6"
+                  />
+                  <line x1="110" y1="28" x2="110" y2="90" stroke="rgba(96,165,250,0.4)" stroke-width="1" />
+                  <circle cx="110" cy="28" r="3.2" fill="#c8dceb" />
+                </svg>
+              </div>
+            </button>
+
+            <button
+              type="button"
+              class="why-panel"
+              role="tab"
+              id="why-panel-3"
+              aria-selected="false"
+              data-why-panel="2"
+            >
+              <div class="why-panel-head">
+                <span class="why-panel-title"><%= t('home.why.p3Title') %></span>
+                <span class="why-panel-index">03</span>
+              </div>
+              <div class="why-panel-body">
+                <div
+                  class="why-panel-stat"
+                  data-why-value="35.4"
+                  data-why-prefix=""
+                  data-why-suffix="k"
+                  data-why-decimals="1"
+                >
+                  0.0k
+                </div>
+                <p class="why-panel-desc"><%= t('home.why.p3Desc') %></p>
+              </div>
+              <div class="why-panel-chart" aria-hidden="true">
+                <svg class="why-chart why-chart-dash" viewBox="0 0 240 90" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="whyAreaFill3" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="rgba(96,165,250,0.28)" />
+                      <stop offset="100%" stop-color="rgba(96,165,250,0)" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M8 62 C40 58, 55 40, 80 44 C110 48, 125 22, 155 28 C185 34, 200 18, 220 24 L220 82 L8 82 Z"
+                    fill="url(#whyAreaFill3)"
+                  />
+                  <path
+                    d="M8 62 C40 58, 55 40, 80 44 C110 48, 125 22, 155 28 C185 34, 200 18, 220 24"
+                    fill="none"
+                    stroke="rgba(147, 197, 253, 0.75)"
+                    stroke-width="1.5"
+                    stroke-dasharray="3 4"
+                  />
+                  <g fill="rgba(96,165,250,0.45)" font-size="7" font-family="Outfit, sans-serif">
+                    <text x="228" y="78">0</text>
+                    <text x="228" y="66">10</text>
+                    <text x="228" y="54">20</text>
+                    <text x="228" y="42">30</text>
+                    <text x="228" y="30">40</text>
+                    <text x="228" y="18">50</text>
+                    <text x="228" y="8">60</text>
+                  </g>
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="products-runway" class="products-runway" aria-label="Projects">
+        <!-- Featured projects carousel hidden until real project content is ready -->
+        <div id="products-stage" class="products-stage">
+          <div class="products-heading">
+            <p class="products-kicker"><%= t('home.projects.kicker') %></p>
+            <h2 class="products-title"><%= t('home.projects.title') %></h2>
+          </div>
+          <div class="products-rail">
+            <div class="products-track" id="products-track">
+              <% if (projects && projects.length > 0) { %>
+                <% projects.forEach((project, index) => { %>
+              <article class="products-card">
+                <div class="products-card-media">
+                  <a href="<%= project.externalUrl %>" target="_blank" rel="noopener noreferrer">
+                    <img
+                      src="<%= project.imageSrc %>"
+                      alt="<%= project.slug %>"
+                      width="600"
+                      height="440"
+                      loading="eager"
+                      decoding="async"
+                      aria-label="<%= project.slug %>"
+                    />
+                  </a>
+          
+                </div>
+                <div class="products-card-body">
+                  <span class="products-card-index"><%= (index+1).toString().padStart(2, "0") %></span>
+                  <h3><%= project.translations?.find(function(tr) {
+                    return tr.field === 'name';
+                  })?.value %></h3>
+                  <p><%= project.translations?.find(function(tr) {
+                    return tr.field === 'description';
+                  })?.value %></p>
+                </div>
+              </article>
+              <% }); %>
+              <% } else { %>
+                <p><%= t('projects.empty') %></p>
+              <% } %>
+              <a
+                href="/projects"
+                class="products-more"
+                aria-label="<%= t('home.projects.moreAria') %>"
+                aria-label="View all projects"
+              >
+                <span class="products-more-label"><%= t('home.projects.more') %></span>
+                <svg class="icon icon-sm chevron-dir" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="section-start" class="careers-cta" aria-labelledby="careers-cta-title">
+        <div class="careers-cta-glow" aria-hidden="true"></div>
+        <div class="careers-cta-wave" aria-hidden="true">
+          <svg class="careers-cta-wave-svg" viewBox="0 0 1440 520" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="careers-fade-down" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#93c5fd" stop-opacity="0.2" />
+                <stop offset="12%" stop-color="#60a5fa" stop-opacity="1" />
+                <stop offset="70%" stop-color="#60a5fa" stop-opacity="1" />
+                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+              </linearGradient>
+              <linearGradient id="careers-fade-up" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%" stop-color="#93c5fd" stop-opacity="0.14" />
+                <stop offset="18%" stop-color="#60a5fa" stop-opacity="1" />
+                <stop offset="72%" stop-color="#60a5fa" stop-opacity="1" />
+                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+            <g fill="url(#careers-fade-down)">
+              <rect class="careers-bar-top" x="23.25" y="0" width="1.5" height="107.49" opacity="0.365" />
+              <rect class="careers-bar-top" x="37.90" y="0" width="1.5" height="126.71" opacity="0.451" />
+              <rect class="careers-bar-top" x="52.56" y="0" width="1.5" height="143.16" opacity="0.516" />
+              <rect class="careers-bar-top" x="67.21" y="0" width="1.5" height="154.23" opacity="0.511" />
+              <rect class="careers-bar-top" x="81.86" y="0" width="1.5" height="158.46" opacity="0.437" />
+              <rect class="careers-bar-top" x="96.51" y="0" width="1.5" height="155.81" opacity="0.511" />
+              <rect class="careers-bar-top" x="111.17" y="0" width="1.5" height="147.63" opacity="0.536" />
+              <rect class="careers-bar-top" x="125.82" y="0" width="1.5" height="136.40" opacity="0.488" />
+              <rect class="careers-bar-top" x="140.47" y="0" width="1.5" height="157.13" opacity="0.448" />
+              <rect class="careers-bar-top" x="155.12" y="0" width="1.5" height="176.05" opacity="0.557" />
+              <rect class="careers-bar-top" x="169.78" y="0" width="1.5" height="189.10" opacity="0.645" />
+              <rect class="careers-bar-top" x="184.43" y="0" width="1.5" height="194.61" opacity="0.626" />
+              <rect class="careers-bar-top" x="199.08" y="0" width="1.5" height="192.35" opacity="0.512" />
+              <rect class="careers-bar-top" x="213.73" y="0" width="1.5" height="183.52" opacity="0.576" />
+              <rect class="careers-bar-top" x="228.39" y="0" width="1.5" height="170.49" opacity="0.611" />
+              <rect class="careers-bar-top" x="243.04" y="0" width="1.5" height="186.81" opacity="0.625" />
+              <rect class="careers-bar-top" x="257.69" y="0" width="1.5" height="201.53" opacity="0.543" />
+              <rect class="careers-bar-top" x="272.34" y="0" width="1.5" height="209.44" opacity="0.633" />
+              <rect class="careers-bar-top" x="287.00" y="0" width="1.5" height="209.01" opacity="0.719" />
+              <rect class="careers-bar-top" x="301.65" y="0" width="1.5" height="200.19" opacity="0.673" />
+              <rect class="careers-bar-top" x="316.30" y="0" width="1.5" height="184.45" opacity="0.530" />
+              <rect class="careers-bar-top" x="330.96" y="0" width="1.5" height="164.44" opacity="0.544" />
+              <rect class="careers-bar-top" x="345.61" y="0" width="1.5" height="171.73" opacity="0.633" />
+              <rect class="careers-bar-top" x="360.26" y="0" width="1.5" height="178.94" opacity="0.636" />
+              <rect class="careers-bar-top" x="374.91" y="0" width="1.5" height="180.08" opacity="0.537" />
+              <rect class="careers-bar-top" x="389.57" y="0" width="1.5" height="174.01" opacity="0.564" />
+              <rect class="careers-bar-top" x="404.22" y="0" width="1.5" height="160.99" opacity="0.611" />
+              <rect class="careers-bar-top" x="418.87" y="0" width="1.5" height="142.65" opacity="0.555" />
+              <rect class="careers-bar-top" x="433.52" y="0" width="1.5" height="121.67" opacity="0.441" />
+              <rect class="careers-bar-top" x="448.18" y="0" width="1.5" height="125.38" opacity="0.464" />
+              <rect class="careers-bar-top" x="462.83" y="0" width="1.5" height="130.83" opacity="0.535" />
+              <rect class="careers-bar-top" x="477.48" y="0" width="1.5" height="131.54" opacity="0.533" />
+              <rect class="careers-bar-top" x="492.13" y="0" width="1.5" height="126.61" opacity="0.458" />
+              <rect class="careers-bar-top" x="506.79" y="0" width="1.5" height="116.41" opacity="0.444" />
+              <rect class="careers-bar-top" x="521.44" y="0" width="1.5" height="102.41" opacity="0.460" />
+              <rect class="careers-bar-top" x="536.09" y="0" width="1.5" height="86.86" opacity="0.418" />
+              <rect class="careers-bar-top" x="550.74" y="0" width="1.5" height="90.44" opacity="0.392" />
+              <rect class="careers-bar-top" x="565.40" y="0" width="1.5" height="96.08" opacity="0.401" />
+              <rect class="careers-bar-top" x="580.05" y="0" width="1.5" height="97.91" opacity="0.449" />
+              <rect class="careers-bar-top" x="594.70" y="0" width="1.5" height="95.41" opacity="0.444" />
+              <rect class="careers-bar-top" x="609.36" y="0" width="1.5" height="89.00" opacity="0.393" />
+              <rect class="careers-bar-top" x="624.01" y="0" width="1.5" height="79.87" opacity="0.367" />
+              <rect class="careers-bar-top" x="638.66" y="0" width="1.5" height="69.63" opacity="0.372" />
+              <rect class="careers-bar-top" x="653.31" y="0" width="1.5" height="72.76" opacity="0.383" />
+              <rect class="careers-bar-top" x="667.97" y="0" width="1.5" height="78.26" opacity="0.372" />
+              <rect class="careers-bar-top" x="682.62" y="0" width="1.5" height="81.25" opacity="0.368" />
+              <rect class="careers-bar-top" x="697.27" y="0" width="1.5" height="81.26" opacity="0.402" />
+              <rect class="careers-bar-top" x="711.92" y="0" width="1.5" height="78.32" opacity="0.400" />
+              <rect class="careers-bar-top" x="726.58" y="0" width="1.5" height="72.99" opacity="0.363" />
+              <rect class="careers-bar-top" x="741.23" y="0" width="1.5" height="66.16" opacity="0.337" />
+              <rect class="careers-bar-top" x="755.88" y="0" width="1.5" height="70.57" opacity="0.372" />
+              <rect class="careers-bar-top" x="770.53" y="0" width="1.5" height="78.55" opacity="0.401" />
+              <rect class="careers-bar-top" x="785.19" y="0" width="1.5" height="84.75" opacity="0.391" />
+              <rect class="careers-bar-top" x="799.84" y="0" width="1.5" height="88.11" opacity="0.375" />
+              <rect class="careers-bar-top" x="814.49" y="0" width="1.5" height="88.01" opacity="0.417" />
+              <rect class="careers-bar-top" x="829.14" y="0" width="1.5" height="84.51" opacity="0.417" />
+              <rect class="careers-bar-top" x="843.80" y="0" width="1.5" height="78.40" opacity="0.378" />
+              <rect class="careers-bar-top" x="858.45" y="0" width="1.5" height="85.67" opacity="0.367" />
+              <rect class="careers-bar-top" x="873.10" y="0" width="1.5" height="98.71" opacity="0.441" />
+              <rect class="careers-bar-top" x="887.76" y="0" width="1.5" height="109.56" opacity="0.487" />
+              <rect class="careers-bar-top" x="902.41" y="0" width="1.5" height="116.51" opacity="0.468" />
+              <rect class="careers-bar-top" x="917.06" y="0" width="1.5" height="118.62" opacity="0.418" />
+              <rect class="careers-bar-top" x="931.71" y="0" width="1.5" height="116.00" opacity="0.480" />
+              <rect class="careers-bar-top" x="946.37" y="0" width="1.5" height="109.91" opacity="0.485" />
+              <rect class="careers-bar-top" x="961.02" y="0" width="1.5" height="120.69" opacity="0.478" />
+              <rect class="careers-bar-top" x="975.67" y="0" width="1.5" height="139.75" opacity="0.445" />
+              <rect class="careers-bar-top" x="990.32" y="0" width="1.5" height="155.46" opacity="0.569" />
+              <rect class="careers-bar-top" x="1004.98" y="0" width="1.5" height="165.72" opacity="0.634" />
+              <rect class="careers-bar-top" x="1019.63" y="0" width="1.5" height="169.50" opacity="0.592" />
+              <rect class="careers-bar-top" x="1034.28" y="0" width="1.5" height="167.16" opacity="0.477" />
+              <rect class="careers-bar-top" x="1048.93" y="0" width="1.5" height="160.34" opacity="0.570" />
+              <rect class="careers-bar-top" x="1063.59" y="0" width="1.5" height="171.50" opacity="0.641" />
+              <rect class="careers-bar-top" x="1078.24" y="0" width="1.5" height="192.24" opacity="0.642" />
+              <rect class="careers-bar-top" x="1092.89" y="0" width="1.5" height="207.87" opacity="0.535" />
+              <rect class="careers-bar-top" x="1107.54" y="0" width="1.5" height="210.00" opacity="0.669" />
+              <rect class="careers-bar-top" x="1122.20" y="0" width="1.5" height="210.00" opacity="0.731" />
+              <rect class="careers-bar-top" x="1136.85" y="0" width="1.5" height="208.92" opacity="0.676" />
+              <rect class="careers-bar-top" x="1151.50" y="0" width="1.5" height="195.94" opacity="0.519" />
+              <rect class="careers-bar-top" x="1166.16" y="0" width="1.5" height="200.05" opacity="0.629" />
+              <rect class="careers-bar-top" x="1180.81" y="0" width="1.5" height="210.00" opacity="0.717" />
+              <rect class="careers-bar-top" x="1195.46" y="0" width="1.5" height="210.00" opacity="0.672" />
+              <rect class="careers-bar-top" x="1210.11" y="0" width="1.5" height="210.00" opacity="0.540" />
+              <rect class="careers-bar-top" x="1224.77" y="0" width="1.5" height="210.00" opacity="0.632" />
+              <rect class="careers-bar-top" x="1239.42" y="0" width="1.5" height="202.05" opacity="0.682" />
+              <rect class="careers-bar-top" x="1254.07" y="0" width="1.5" height="181.84" opacity="0.601" />
+              <rect class="careers-bar-top" x="1268.72" y="0" width="1.5" height="178.33" opacity="0.492" />
+              <rect class="careers-bar-top" x="1283.38" y="0" width="1.5" height="187.65" opacity="0.570" />
+              <rect class="careers-bar-top" x="1298.03" y="0" width="1.5" height="191.97" opacity="0.643" />
+              <rect class="careers-bar-top" x="1312.68" y="0" width="1.5" height="189.41" opacity="0.609" />
+              <rect class="careers-bar-top" x="1327.33" y="0" width="1.5" height="179.40" opacity="0.492" />
+              <rect class="careers-bar-top" x="1341.99" y="0" width="1.5" height="162.87" opacity="0.508" />
+              <rect class="careers-bar-top" x="1356.64" y="0" width="1.5" height="142.01" opacity="0.516" />
+              <rect class="careers-bar-top" x="1371.29" y="0" width="1.5" height="137.46" opacity="0.491" />
+              <rect class="careers-bar-top" x="1385.94" y="0" width="1.5" height="147.95" opacity="0.444" />
+              <rect class="careers-bar-top" x="1400.60" y="0" width="1.5" height="154.18" opacity="0.479" />
+              <rect class="careers-bar-top" x="1415.25" y="0" width="1.5" height="154.11" opacity="0.530" />
+            </g>
+            <g fill="url(#careers-fade-up)">
+              <rect class="careers-bar-bottom" x="23.25" y="442.61" width="1.5" height="77.39" opacity="0.080" />
+              <rect class="careers-bar-bottom" x="37.90" y="428.77" width="1.5" height="91.23" opacity="0.099" />
+              <rect class="careers-bar-bottom" x="52.56" y="416.93" width="1.5" height="103.07" opacity="0.114" />
+              <rect class="careers-bar-bottom" x="67.21" y="408.96" width="1.5" height="111.04" opacity="0.112" />
+              <rect class="careers-bar-bottom" x="81.86" y="405.91" width="1.5" height="114.09" opacity="0.096" />
+              <rect class="careers-bar-bottom" x="96.51" y="407.82" width="1.5" height="112.18" opacity="0.113" />
+              <rect class="careers-bar-bottom" x="111.17" y="413.71" width="1.5" height="106.29" opacity="0.118" />
+              <rect class="careers-bar-bottom" x="125.82" y="421.79" width="1.5" height="98.21" opacity="0.107" />
+              <rect class="careers-bar-bottom" x="140.47" y="406.87" width="1.5" height="113.13" opacity="0.098" />
+              <rect class="careers-bar-bottom" x="155.12" y="393.25" width="1.5" height="126.75" opacity="0.122" />
+              <rect class="careers-bar-bottom" x="169.78" y="383.85" width="1.5" height="136.15" opacity="0.142" />
+              <rect class="careers-bar-bottom" x="184.43" y="379.88" width="1.5" height="140.12" opacity="0.138" />
+              <rect class="careers-bar-bottom" x="199.08" y="381.50" width="1.5" height="138.50" opacity="0.113" />
+              <rect class="careers-bar-bottom" x="213.73" y="387.87" width="1.5" height="132.13" opacity="0.127" />
+              <rect class="careers-bar-bottom" x="228.39" y="397.25" width="1.5" height="122.75" opacity="0.134" />
+              <rect class="careers-bar-bottom" x="243.04" y="385.50" width="1.5" height="134.50" opacity="0.138" />
+              <rect class="careers-bar-bottom" x="257.69" y="374.90" width="1.5" height="145.10" opacity="0.119" />
+              <rect class="careers-bar-bottom" x="272.34" y="369.20" width="1.5" height="150.80" opacity="0.139" />
+              <rect class="careers-bar-bottom" x="287.00" y="369.52" width="1.5" height="150.48" opacity="0.158" />
+              <rect class="careers-bar-bottom" x="301.65" y="375.86" width="1.5" height="144.14" opacity="0.148" />
+              <rect class="careers-bar-bottom" x="316.30" y="387.19" width="1.5" height="132.81" opacity="0.117" />
+              <rect class="careers-bar-bottom" x="330.96" y="401.60" width="1.5" height="118.40" opacity="0.120" />
+              <rect class="careers-bar-bottom" x="345.61" y="396.35" width="1.5" height="123.65" opacity="0.139" />
+              <rect class="careers-bar-bottom" x="360.26" y="391.16" width="1.5" height="128.84" opacity="0.140" />
+              <rect class="careers-bar-bottom" x="374.91" y="390.34" width="1.5" height="129.66" opacity="0.118" />
+              <rect class="careers-bar-bottom" x="389.57" y="394.71" width="1.5" height="125.29" opacity="0.124" />
+              <rect class="careers-bar-bottom" x="404.22" y="404.09" width="1.5" height="115.91" opacity="0.134" />
+              <rect class="careers-bar-bottom" x="418.87" y="417.29" width="1.5" height="102.71" opacity="0.122" />
+              <rect class="careers-bar-bottom" x="433.52" y="432.40" width="1.5" height="87.60" opacity="0.097" />
+              <rect class="careers-bar-bottom" x="448.18" y="429.73" width="1.5" height="90.27" opacity="0.102" />
+              <rect class="careers-bar-bottom" x="462.83" y="425.81" width="1.5" height="94.19" opacity="0.118" />
+              <rect class="careers-bar-bottom" x="477.48" y="425.29" width="1.5" height="94.71" opacity="0.117" />
+              <rect class="careers-bar-bottom" x="492.13" y="428.84" width="1.5" height="91.16" opacity="0.101" />
+              <rect class="careers-bar-bottom" x="506.79" y="436.19" width="1.5" height="83.81" opacity="0.098" />
+              <rect class="careers-bar-bottom" x="521.44" y="446.26" width="1.5" height="73.74" opacity="0.101" />
+              <rect class="careers-bar-bottom" x="536.09" y="457.46" width="1.5" height="62.54" opacity="0.092" />
+              <rect class="careers-bar-bottom" x="550.74" y="454.89" width="1.5" height="65.11" opacity="0.086" />
+              <rect class="careers-bar-bottom" x="565.40" y="450.82" width="1.5" height="69.18" opacity="0.088" />
+              <rect class="careers-bar-bottom" x="580.05" y="449.51" width="1.5" height="70.49" opacity="0.099" />
+              <rect class="careers-bar-bottom" x="594.70" y="451.31" width="1.5" height="68.69" opacity="0.098" />
+              <rect class="careers-bar-bottom" x="609.36" y="455.92" width="1.5" height="64.08" opacity="0.086" />
+              <rect class="careers-bar-bottom" x="624.01" y="462.49" width="1.5" height="57.51" opacity="0.081" />
+              <rect class="careers-bar-bottom" x="638.66" y="469.86" width="1.5" height="50.14" opacity="0.082" />
+              <rect class="careers-bar-bottom" x="653.31" y="467.61" width="1.5" height="52.39" opacity="0.084" />
+              <rect class="careers-bar-bottom" x="667.97" y="463.65" width="1.5" height="56.35" opacity="0.082" />
+              <rect class="careers-bar-bottom" x="682.62" y="461.50" width="1.5" height="58.50" opacity="0.081" />
+              <rect class="careers-bar-bottom" x="697.27" y="461.49" width="1.5" height="58.51" opacity="0.089" />
+              <rect class="careers-bar-bottom" x="711.92" y="463.61" width="1.5" height="56.39" opacity="0.088" />
+              <rect class="careers-bar-bottom" x="726.58" y="467.45" width="1.5" height="52.55" opacity="0.080" />
+              <rect class="careers-bar-bottom" x="741.23" y="472.36" width="1.5" height="47.64" opacity="0.074" />
+              <rect class="careers-bar-bottom" x="755.88" y="469.19" width="1.5" height="50.81" opacity="0.082" />
+              <rect class="careers-bar-bottom" x="770.53" y="463.45" width="1.5" height="56.55" opacity="0.088" />
+              <rect class="careers-bar-bottom" x="785.19" y="458.98" width="1.5" height="61.02" opacity="0.086" />
+              <rect class="careers-bar-bottom" x="799.84" y="456.56" width="1.5" height="63.44" opacity="0.082" />
+              <rect class="careers-bar-bottom" x="814.49" y="456.63" width="1.5" height="63.37" opacity="0.092" />
+              <rect class="careers-bar-bottom" x="829.14" y="459.16" width="1.5" height="60.84" opacity="0.092" />
+              <rect class="careers-bar-bottom" x="843.80" y="463.55" width="1.5" height="56.45" opacity="0.083" />
+              <rect class="careers-bar-bottom" x="858.45" y="458.32" width="1.5" height="61.68" opacity="0.081" />
+              <rect class="careers-bar-bottom" x="873.10" y="448.93" width="1.5" height="71.07" opacity="0.097" />
+              <rect class="careers-bar-bottom" x="887.76" y="441.12" width="1.5" height="78.88" opacity="0.107" />
+              <rect class="careers-bar-bottom" x="902.41" y="436.11" width="1.5" height="83.89" opacity="0.103" />
+              <rect class="careers-bar-bottom" x="917.06" y="434.59" width="1.5" height="85.41" opacity="0.092" />
+              <rect class="careers-bar-bottom" x="931.71" y="436.48" width="1.5" height="83.52" opacity="0.106" />
+              <rect class="careers-bar-bottom" x="946.37" y="440.86" width="1.5" height="79.14" opacity="0.107" />
+              <rect class="careers-bar-bottom" x="961.02" y="433.10" width="1.5" height="86.90" opacity="0.105" />
+              <rect class="careers-bar-bottom" x="975.67" y="419.38" width="1.5" height="100.62" opacity="0.098" />
+              <rect class="careers-bar-bottom" x="990.32" y="408.07" width="1.5" height="111.93" opacity="0.125" />
+              <rect class="careers-bar-bottom" x="1004.98" y="400.68" width="1.5" height="119.32" opacity="0.139" />
+              <rect class="careers-bar-bottom" x="1019.63" y="397.96" width="1.5" height="122.04" opacity="0.130" />
+              <rect class="careers-bar-bottom" x="1034.28" y="399.65" width="1.5" height="120.35" opacity="0.105" />
+              <rect class="careers-bar-bottom" x="1048.93" y="404.55" width="1.5" height="115.45" opacity="0.125" />
+              <rect class="careers-bar-bottom" x="1063.59" y="396.52" width="1.5" height="123.48" opacity="0.141" />
+              <rect class="careers-bar-bottom" x="1078.24" y="381.58" width="1.5" height="138.42" opacity="0.141" />
+              <rect class="careers-bar-bottom" x="1092.89" y="370.33" width="1.5" height="149.67" opacity="0.118" />
+              <rect class="careers-bar-bottom" x="1107.54" y="368.80" width="1.5" height="151.20" opacity="0.147" />
+              <rect class="careers-bar-bottom" x="1122.20" y="368.80" width="1.5" height="151.20" opacity="0.161" />
+              <rect class="careers-bar-bottom" x="1136.85" y="369.58" width="1.5" height="150.42" opacity="0.149" />
+              <rect class="careers-bar-bottom" x="1151.50" y="378.92" width="1.5" height="141.08" opacity="0.114" />
+              <rect class="careers-bar-bottom" x="1166.16" y="375.97" width="1.5" height="144.03" opacity="0.138" />
+              <rect class="careers-bar-bottom" x="1180.81" y="368.80" width="1.5" height="151.20" opacity="0.158" />
+              <rect class="careers-bar-bottom" x="1195.46" y="368.80" width="1.5" height="151.20" opacity="0.148" />
+              <rect class="careers-bar-bottom" x="1210.11" y="368.80" width="1.5" height="151.20" opacity="0.119" />
+              <rect class="careers-bar-bottom" x="1224.77" y="368.80" width="1.5" height="151.20" opacity="0.139" />
+              <rect class="careers-bar-bottom" x="1239.42" y="374.53" width="1.5" height="145.47" opacity="0.150" />
+              <rect class="careers-bar-bottom" x="1254.07" y="389.08" width="1.5" height="130.92" opacity="0.132" />
+              <rect class="careers-bar-bottom" x="1268.72" y="391.60" width="1.5" height="128.40" opacity="0.108" />
+              <rect class="careers-bar-bottom" x="1283.38" y="384.89" width="1.5" height="135.11" opacity="0.125" />
+              <rect class="careers-bar-bottom" x="1298.03" y="381.78" width="1.5" height="138.22" opacity="0.141" />
+              <rect class="careers-bar-bottom" x="1312.68" y="383.63" width="1.5" height="136.37" opacity="0.134" />
+              <rect class="careers-bar-bottom" x="1327.33" y="390.83" width="1.5" height="129.17" opacity="0.108" />
+              <rect class="careers-bar-bottom" x="1341.99" y="402.73" width="1.5" height="117.27" opacity="0.112" />
+              <rect class="careers-bar-bottom" x="1356.64" y="417.75" width="1.5" height="102.25" opacity="0.113" />
+              <rect class="careers-bar-bottom" x="1371.29" y="421.03" width="1.5" height="98.97" opacity="0.108" />
+              <rect class="careers-bar-bottom" x="1385.94" y="413.48" width="1.5" height="106.52" opacity="0.098" />
+              <rect class="careers-bar-bottom" x="1400.60" y="408.99" width="1.5" height="111.01" opacity="0.105" />
+              <rect class="careers-bar-bottom" x="1415.25" y="409.04" width="1.5" height="110.96" opacity="0.117" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="careers-cta-inner">
+          <p class="careers-cta-label">
+            <svg class="icon icon-xs" aria-hidden="true"><use href="#icon-mark-v"></use></svg>
+            <span><%= t('home.careers.label') %></span>
+          </p>
+          <h2 id="careers-cta-title" class="careers-cta-title"><%= t('home.ctaThree') %></h2>
+          <a
+            class="careers-cta-btn"
+            href="/contact"
+            aria-label="<%= t('home.ctaAria') %>"
+            data-action="contact"
+          >
+            <span><%= t('home.careers.cta') %></span>
+            <span class="careers-cta-btn-icon" aria-hidden="true">
+              <svg class="icon icon-xs chevron-dir"><use href="#icon-arrow-right"></use></svg>
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <section
+        id="pricing-stage"
+        class="pricing-stage"
+        aria-label="Website pricing"
+        data-anim-cards
+        data-anim-features
+        data-anim-featured
+      >
+        <div class="pricing-inner">
+          <header class="pricing-header">
+            <h2 class="pricing-title">
+              <span><%= t('home.pricing.titleLead') %></span>
+              <span class="pricing-title-accent"><%= t('home.pricing.titleAccent') %></span>
+            </h2>
+            <p class="pricing-sub"><%= t('home.pricing.subtitle') %></p>
+          </header>
+
+          <div class="pricing-grid">
+            <article class="pricing-card">
+              <h3 class="pricing-card-name"><%= t('home.pricing.p1Name') %></h3>
+              <div class="pricing-card-price-block">
+                <p class="pricing-card-price"><%= t('home.pricing.p1Price') %></p>
+                <p class="pricing-card-period"><%= t('home.pricing.period') %></p>
+              </div>
+              <p class="pricing-card-desc"><%= t('home.pricing.p1Desc') %></p>
+              <div class="pricing-card-panel">
+                <a href="/contact" class="pricing-card-cta" data-action="contact">
+                  <%= t('home.pricing.cta') %>
+                </a>
+                <p class="pricing-features-label"><%= t('home.pricing.features') %></p>
+                <ul class="pricing-features">
+                  <li>
+                    <span class="pricing-check" aria-hidden="true"><svg class="icon icon-xs"><use href="#icon-check"></use></svg></span>
+                    <span><%= t('home.pricing.p1f1') %></span>
+                  </li>
+                  <li>
+                    <span class="pricing-check" aria-hidden="true"><svg class="icon icon-xs"><use href="#icon-check"></use></svg></span>
+                    <span><%= t('home.pricing.p1f2') %></span>
+                  </li>
+                  <li>
+                    <span class="pricing-check" aria-hidden="true"><svg class="icon icon-xs"><use href="#icon-check"></use></svg></span>
+                    <span><%= t('home.pricing.p1f3') %></span>
+                  </li>
+                  <li>
+                    <span class="pricing-check" aria-hidden="true"><svg class="icon icon-xs"><use href="#icon-check"></use></svg></span>
+                    <span><%= t('home.pricing.p1f4') %></span>
+                  </li>
+                  <li>
+                    <span class="pricing-check" aria-hidden="true"><svg class="icon icon-xs"><use href="#icon-check"></use></svg></span>
+                    <span><%= t('home.pricing.p1f5') %></span>
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="pricing-card pricing-card--featured">
+              <p class="pricing-card-tag"><%= t('home.pricing.popular') %></p>
+              <h3 class="pricing-card-name"><%= t('home.pricing.p2Name') %></h3>
+              <div class="pricing-card-price-block">
+                <p class="pricing-card-price"><%= t('home.pricing.p2Price') %></p>
+                <p class="pricing-card-period"><%= t('home.pricing.period') %></p>
+              </div>
+              <p class="pricing-card-desc"><%= t('home.pricing.p2Desc') %></p>
+              <div class="pricing-card-panel">
+                <a href="/contact" class="pricing-card-cta" data-action="contact">
+                  <%= t('home.pricing.cta') %>
+                </a>
+                <p class="pricing-features-label"><%= t('home.pricing.features') %></p>
+                <ul class="pricing-features">
+                  <li>
+                    <span class="pricing-check" aria-hidden="true"><svg class="icon icon-xs"><use href="#icon-check"></use></svg></span>
+                    <span><%= t('home.pricing.p2f1') %></span>
+                  </li>
+                  <li>
+                    <span class="pricing-check" aria-hidden="true"><svg class="icon icon-xs"><use href="#icon-check"></use></svg></span>
+                    <span><%= t('home.pricing.p2f2') %></span>
+                  </li>
+                  <li>
+                    <span class="pricing-check" aria-hidden="true"><svg class="icon icon-xs"><use href="#icon-check"></use></svg></span>
+                    <span><%= t('home.pricing.p2f3') %></span>
+                  </li>
+                  <li>
+                    <span class="pricing-check" aria-hidden="true"><svg class="icon icon-xs"><use href="#icon-check"></use></svg></span>
+                    <span><%= t('home.pricing.p2f4') %></span>
+                  </li>
+                  <li>
+                    <span class="pricing-check" aria-hidden="true"><svg class="icon icon-xs"><use href="#icon-check"></use></svg></span>
+                    <span><%= t('home.pricing.p2f5') %></span>
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="pricing-card">
+              <h3 class="pricing-card-name"><%= t('home.pricing.p3Name') %></h3>
+              <div class="pricing-card-price-block">
+                <p class="pricing-card-price"><%= t('home.pricing.p3Price') %></p>
+                <p class="pricing-card-period"><%= t('home.pricing.period') %></p>
+              </div>
+              <p class="pricing-card-desc"><%= t('home.pricing.p3Desc') %></p>
+              <div class="pricing-card-panel">
+                <a href="/contact" class="pricing-card-cta" data-action="contact">
+                  <%= t('home.pricing.cta') %>
+                </a>
+                <p class="pricing-features-label"><%= t('home.pricing.features') %></p>
+                <ul class="pricing-features">
+                  <li>
+                    <span class="pricing-check" aria-hidden="true"><svg class="icon icon-xs"><use href="#icon-check"></use></svg></span>
+                    <span><%= t('home.pricing.p3f1') %></span>
+                  </li>
+                  <li>
+                    <span class="pricing-check" aria-hidden="true"><svg class="icon icon-xs"><use href="#icon-check"></use></svg></span>
+                    <span><%= t('home.pricing.p3f2') %></span>
+                  </li>
+                  <li>
+                    <span class="pricing-check" aria-hidden="true"><svg class="icon icon-xs"><use href="#icon-check"></use></svg></span>
+                    <span><%= t('home.pricing.p3f3') %></span>
+                  </li>
+                  <li>
+                    <span class="pricing-check" aria-hidden="true"><svg class="icon icon-xs"><use href="#icon-check"></use></svg></span>
+                    <span><%= t('home.pricing.p3f4') %></span>
+                  </li>
+                  <li>
+                    <span class="pricing-check" aria-hidden="true"><svg class="icon icon-xs"><use href="#icon-check"></use></svg></span>
+                    <span><%= t('home.pricing.p3f5') %></span>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="section-news"
+        class="brand-devices-banner brand-devices-banner--home"
+        aria-labelledby="latest-news-title"
+      >
+        <div class="brand-devices-banner__top">
+          <div class="brand-devices-banner__titles">
+            <h2 id="latest-news-title" class="brand-devices-banner__title"><%= t('home.news.title') %></h2>
+            <p class="brand-devices-banner__sub"><%= t('home.news.sub') %></p>
+          </div>
+        </div>
+
+        <div class="brand-devices-banner__devices">
+          <div class="latest-news__devices-row">
+            <a
+              class="latest-news__laptop-wrap"
+              href="https://www.facebook.com/asas.soft.sy"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="<%= t('home.news.laptopAria') %>"
+            >
+              <img
+                class="brand-devices-banner__mockup"
+                src="/assets/news/y-laptop.png"
+                alt=""
+                width="1200"
+                height="700"
+                loading="lazy"
+                decoding="async"
+                aria-hidden="true"
+              />
+            </a>
+
+            <div class="latest-news__phone is-pending" data-fb-frame>
+              <div class="latest-news__phone-screen">
+                <div class="latest-news__widget-host" data-fb-host hidden></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>

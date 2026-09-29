@@ -1,0 +1,11 @@
+.git
+.github
+.cursor
+**/node_modules
+**/.env
+**/.env.*
+**/dist
+**/build
+**/.DS_Store
+**/coverage
+**/generated

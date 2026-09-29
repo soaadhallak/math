@@ -1,0 +1,206 @@
+/* Page loader — Asas Soft
+   ui-ux-pro-max: max 1–2 motions, ease-out in / ease-in out, reduced-motion
+   Motions: 1) logo reveal  2) progress bar (+ exit fade) */
+
+.page-loader {
+  --loader-bg: var(--navy-ink, #05050c);
+  --loader-ice: var(--ice, #60a5fa);
+  --loader-ice-soft: var(--ice-soft, #3b82f6);
+  --loader-ice-bright: var(--ice-bright, #93c5fd);
+  --loader-fill: 0%;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(
+      ellipse 70% 55% at 50% 42%,
+      rgba(17, 42, 73, 0.55) 0%,
+      transparent 70%
+    ),
+    var(--loader-bg);
+  color: #f8fafc;
+  transition: opacity 0.45s ease-in, visibility 0.45s ease-in;
+}
+
+.page-loader.is-done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.page-loader__atmosphere {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.page-loader__glow {
+  position: absolute;
+  width: min(56vw, 440px);
+  height: min(56vw, 440px);
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(96, 165, 250, 0.2) 0%,
+    rgba(59, 130, 246, 0.06) 48%,
+    transparent 72%
+  );
+  filter: blur(48px);
+  opacity: 0.85;
+}
+
+.page-loader__stage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: min(17rem, calc(100% - 3rem));
+  text-align: center;
+  transition: opacity 0.4s ease-in, transform 0.4s ease-in;
+}
+
+.page-loader.is-done .page-loader__stage {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+.page-loader__brand {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 3.5rem;
+  width: min(12rem, 72vw);
+  overflow: hidden;
+}
+
+/* Motion 1 — brand mark settles (ease-out) */
+.page-loader__logo {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: auto;
+  height: clamp(2.4rem, 6.4vw, 3.2rem);
+  max-width: 11.5rem;
+  object-fit: contain;
+  opacity: 0;
+  transform: translateY(8px) scale(0.96);
+  filter: drop-shadow(0 0 0 transparent);
+  will-change: transform, opacity;
+}
+
+.page-loader__brand.is-in .page-loader__logo {
+  animation: page-loader-logo-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.page-loader__brand.is-ready .page-loader__logo {
+  filter: drop-shadow(0 0 18px rgba(96, 165, 250, 0.28));
+  transition: filter 0.35s ease-out;
+}
+
+@keyframes page-loader-logo-in {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+    clip-path: inset(0 28% 0 28%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Motion 2 — progress (only continuous indicator) */
+.page-loader__meter {
+  width: 100%;
+  max-width: 9.5rem;
+  opacity: 0;
+  transition: opacity 0.35s ease-out 0.35s;
+}
+
+.page-loader.is-armed .page-loader__meter {
+  opacity: 1;
+}
+
+.page-loader__track {
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.14);
+  overflow: hidden;
+}
+
+.page-loader__bar {
+  height: 100%;
+  width: var(--loader-fill);
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    var(--loader-ice-soft) 0%,
+    var(--loader-ice) 55%,
+    var(--loader-ice-bright) 100%
+  );
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.page-loader__label {
+  margin: 0;
+  font-family: var(--font-ui, "Outfit", system-ui, sans-serif);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(169, 178, 196, 0.72);
+  opacity: 0;
+  transition: opacity 0.35s ease-out 0.45s;
+}
+
+.page-loader.is-armed .page-loader__label {
+  opacity: 1;
+}
+
+html[dir="rtl"] .page-loader__label {
+  font-family: var(--font-ui, "Tajawal", system-ui, sans-serif);
+  letter-spacing: 0.08em;
+}
+
+html.is-loading,
+html.is-loading body {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-loader,
+  .page-loader__stage,
+  .page-loader__logo,
+  .page-loader__bar,
+  .page-loader__meter,
+  .page-loader__label {
+    transition: opacity 0.2s ease !important;
+    animation: none !important;
+  }
+
+  .page-loader.is-done .page-loader__stage {
+    transform: none;
+  }
+
+  .page-loader__logo {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+    filter: none;
+  }
+
+  .page-loader__meter,
+  .page-loader__label {
+    opacity: 1;
+  }
+}

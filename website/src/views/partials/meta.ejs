@@ -1,0 +1,94 @@
+<%
+  const pageSeo = typeof seoData !== 'undefined' ? seoData : {};
+  const structuredData = typeof structuredDataObj !== 'undefined' ? structuredDataObj : null;
+  const companyName = company?.name;
+  const defaultTitle = seo?.defaultTitle;
+  const defaultDescription = seo?.defaultDescription;
+  const defaultKeywords = seo?.defaultKeywords;
+  const defaultUrl = baseUrl;
+  const defaultImageRaw = company?.previewImagePath;
+  const defaultImage = defaultImageRaw
+    ? (String(defaultImageRaw).startsWith('http') ? defaultImageRaw : (baseUrl ? String(baseUrl).replace(/\/$/, '') + defaultImageRaw : defaultImageRaw))
+    : undefined;
+  const currentUrl = pageSeo.url ?? defaultUrl;
+  const currentImage = pageSeo.image ?? defaultImage;
+  const ogImageWidth = pageSeo.imageWidth || 1200;
+  const ogImageHeight = pageSeo.imageHeight || 630;
+  const robotsContent = pageSeo.robots || 'index, follow';
+  const pathForAlternates = typeof currentPath !== 'undefined' ? currentPath : '/';
+  const sep = pathForAlternates.indexOf('?') >= 0 ? '&' : '?';
+  const ogMap = typeof ogLocaleMap !== 'undefined' ? ogLocaleMap : {};
+  const currentOgLocale = ogMap[locale] || (locale ? locale + '_' + locale.toUpperCase() : 'en_US');
+  const twitterHandle = company?.twitterUrl
+    ? '@' + String(company.twitterUrl).replace(/^https?:\/\/(www\.)?(x|twitter)\.com\//i, '').replace(/\/$/, '')
+    : '';
+%>
+<title><%= pageSeo.title ?? defaultTitle %></title>
+<meta name="description" content="<%= pageSeo.description ?? defaultDescription %>">
+<meta name="keywords" content="<%= pageSeo.keywords ?? defaultKeywords %>">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="<%= pageSeo.type ?? 'website' %>">
+<meta property="og:url" content="<%= currentUrl %>">
+<meta property="og:title" content="<%= pageSeo.title ?? companyName %>">
+<meta property="og:description" content="<%= pageSeo.description ?? defaultDescription %>">
+<% if (currentImage) { %>
+<meta property="og:image" content="<%= currentImage %>">
+<meta property="og:image:secure_url" content="<%= currentImage %>">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="<%= ogImageWidth %>">
+<meta property="og:image:height" content="<%= ogImageHeight %>">
+<meta property="og:image:alt" content="<%= pageSeo.title ?? companyName %>">
+<% } %>
+<meta property="og:site_name" content="<%= companyName %>">
+<meta property="og:locale" content="<%= currentOgLocale %>">
+<% if (typeof languages !== 'undefined' && languages.length) { %>
+<% languages.filter(l => l !== locale).forEach(l => { const altOg = ogMap[l] || (l + '_' + (l || '').toUpperCase()); %>
+<meta property="og:locale:alternate" content="<%= altOg %>">
+<% }); %>
+<% } %>
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="<%= currentUrl %>">
+<meta name="twitter:title" content="<%= pageSeo.title ?? companyName %>">
+<meta name="twitter:description" content="<%= pageSeo.description ?? defaultDescription %>">
+<% if (currentImage) { %>
+<meta name="twitter:image" content="<%= currentImage %>">
+<meta name="twitter:image:alt" content="<%= pageSeo.title ?? companyName %>">
+<% } %>
+<% if (twitterHandle) { %>
+<meta name="twitter:site" content="<%= twitterHandle %>">
+<% } %>
+
+<!-- Canonical URL -->
+<link rel="canonical" href="<%= currentUrl %>">
+
+<% if (typeof languages !== 'undefined' && languages.length && baseUrl) { %>
+<!-- Alternate languages (hreflang) -->
+<%
+  const altBase = String(baseUrl).replace(/\/$/, '');
+  const altPath = pathForAlternates === '/' ? '/' : pathForAlternates;
+  const altRoot = altPath === '/' ? altBase + '/' : altBase + altPath;
+%>
+<% languages.forEach(l => {
+  const href = (!l || l === 'en') ? altRoot : (altRoot + (altRoot.indexOf('?') >= 0 ? '&' : '?') + 'lang=' + l);
+%>
+<link rel="alternate" hreflang="<%= l %>" href="<%= href %>">
+<% }); %>
+<link rel="alternate" hreflang="x-default" href="<%= altRoot %>">
+<% } %>
+
+<!-- Structured Data -->
+<% if (structuredData) { %>
+<script type="application/ld+json">
+<%- JSON.stringify(structuredData).replace(/</g, '\\u003c') %>
+</script>
+<% } %>
+
+<!-- Additional Meta -->
+<meta name="author" content="<%= typeof metaAuthor !== 'undefined' && metaAuthor ? metaAuthor : companyName %>">
+<meta name="owner" content="<%= companyName %>">
+<meta name="copyright" content="<%= company?.legalName || companyName %>">
+<meta name="robots" content="<%= robotsContent %>">
+<meta name="format-detection" content="telephone=no">

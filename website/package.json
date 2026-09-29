@@ -1,0 +1,50 @@
+{
+  "name": "website-express",
+  "version": "1.0.0",
+  "description": "Full-Stack Website",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node src/main.js",
+    "dev": "cross-env NODE_ENV=development node --watch src/main.js",
+    "generate:swagger": "node scripts/generate-swagger.cjs",
+    "dev:docs": "cross-env NODE_ENV=development npm run generate:swagger && npm run dev",
+    "generate:sitemap": "node scripts/generate-sitemap.js",
+    "db:bootstrap": "npm run prisma:ensure-db && npm run prisma:generate && npm run prisma:deploy && npm run prisma:seed",
+    "prisma:ensure-db": "node scripts/ensure-database.js",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:generate": "prisma generate",
+    "prisma:deploy": "prisma migrate deploy",
+    "prisma:seed": "node prisma/seeds/index.js",
+    "prisma:reset": "prisma migrate reset",
+    "prisma:validate": "prisma validate",
+    "prisma:studio": "prisma studio"
+  },
+  "keywords": [],
+  "author": "Asas Soft",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/adapter-mariadb": "^7.4.2",
+    "@prisma/client": "^7.4.2",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-rate-limit": "^8.2.1",
+    "express-session": "^1.19.0",
+    "i18next": "^25.8.13",
+    "i18next-fs-backend": "^2.6.1",
+    "i18next-http-middleware": "^3.9.2",
+    "mariadb": "^3.5.1",
+    "multer": "^2.1.0",
+    "swagger-ui-express": "^5.0.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0",
+    "prisma": "^7.4.2",
+    "swagger-autogen": "^2.23.7"
+  }
+}

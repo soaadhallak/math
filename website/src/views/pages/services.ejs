@@ -1,0 +1,393 @@
+<html
+  lang="<%= language %>"
+  dir="<%= language === 'ar' ? 'rtl' : 'ltr' %>"
+>
+<main
+  class="services-main"
+  id="services-main"
+  <% if (typeof focusSlug !== 'undefined' && focusSlug) { %>
+    data-focus-slug="<%= focusSlug %>"
+  <% } %>
+>
+  <section class="about-hero" aria-labelledby="services-hero-title">
+    <div class="about-hero-glow" aria-hidden="true">
+      <span class="about-beam about-beam--tl"></span>
+      <span class="about-beam about-beam--tr"></span>
+      <span class="about-beam about-beam--mid"></span>
+      <span class="about-beam about-beam--bl"></span>
+    </div>
+
+    <div class="about-shell about-hero-content">
+      <span class="about-badge">
+        <%= t('services.heroBadge') %>
+      </span>
+
+      <h1 id="services-hero-title" class="about-hero-title">
+        <%= t('services.heroTitle') %>
+      </h1>
+
+      <p class="about-hero-sub">
+        <%= t('services.heroSub') %>
+      </p>
+    </div>
+  </section>
+
+
+  <div class="services-content">
+
+    <div class="services-atmosphere" aria-hidden="true">
+      <span class="services-join-wash"></span>
+      <span class="services-atmosphere-veil"></span>
+      <span class="services-atmosphere-glow services-atmosphere-glow--mid"></span>
+      <span class="services-atmosphere-glow services-atmosphere-glow--side"></span>
+      <span class="services-atmosphere-glow services-atmosphere-glow--alt"></span>
+      <span class="services-atmosphere-glow services-atmosphere-glow--base"></span>
+      <span class="services-atmosphere-grid"></span>
+      <span class="services-atmosphere-rails"></span>
+    </div>
+
+
+    <section
+      class="services-stack"
+      id="services-stack"
+      aria-labelledby="services-stack-title"
+    >
+      <h2 id="services-stack-title" class="visually-hidden">
+        <%= t('services.pageTitle') %>
+      </h2>
+
+
+      <% (typeof services !== 'undefined' && services ? services : []).forEach(function(service, index) {
+
+        var isReverse = index % 2 === 1;
+
+        var itemClass = isReverse
+          ? 'services-stack-item services-stack-item--reverse'
+          : 'services-stack-item';
+
+        var layoutClass = isReverse
+          ? 'services-stack-layout services-stack-layout--reverse'
+          : 'services-stack-layout';
+
+        var name =
+          service.translations?.find(function(tr) {
+            return tr.field === 'name';
+          })?.value || '';
+
+        var description =
+          service.translations?.find(function(tr) {
+            return tr.field === 'description';
+          })?.value || '';
+
+        var features = [];
+
+        var rawFeatures =
+          service.translations?.find(function(tr) {
+            return tr.field === 'features';
+          })?.value;
+
+        if (rawFeatures) {
+          try {
+            var parsed = JSON.parse(rawFeatures);
+
+            if (Array.isArray(parsed)) {
+              features = parsed;
+            }
+          } catch (e) {
+            features = [];
+          }
+        }
+
+      %>
+
+        <div class="services-stack-stage">
+
+          <article
+            class="<%= itemClass %>"
+            id="<%= service.slug %>"
+          >
+
+            <div class="services-stack-inner">
+
+              <div class="<%= layoutClass %>">
+
+                <div class="services-stack-copy">
+
+                  <h3 class="services-stack-heading">
+                    <%= name %>
+                  </h3>
+
+                  <p class="services-stack-intro">
+                    <%= description %>
+                  </p>
+
+
+                  <% if (features && features.length) { %>
+
+                    <div class="services-accordion">
+
+                      <% features.forEach(function(feature, fi) {
+
+                        var isOpen = fi === 0;
+
+                      %>
+
+                        <div
+                          class="services-accordion-item<%= isOpen ? ' is-open' : '' %>"
+                        >
+
+                          <h4 class="services-accordion-heading">
+
+                            <button
+                              type="button"
+                              class="services-accordion-trigger"
+                              aria-expanded="<%= isOpen ? 'true' : 'false' %>"
+                            >
+
+                              <span>
+                                <%= feature.title %>
+                              </span>
+
+                              <svg
+                                class="icon icon-sm services-accordion-icon"
+                                aria-hidden="true"
+                              >
+                                <use
+                                  href="#icon-chevron-<%= isOpen ? 'up' : 'down' %>"
+                                ></use>
+                              </svg>
+
+                            </button>
+
+                          </h4>
+
+
+                          <div class="services-accordion-body">
+
+                            <div class="services-accordion-body-inner">
+
+                              <p>
+                                <%= feature.text %>
+                              </p>
+
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                      <% }); %>
+
+                    </div>
+
+                  <% } %>
+
+
+                  <a
+                    href="/contact"
+                    class="services-stack-cta"
+                  >
+                    <span>
+                      <%= t('services.discuss') %>
+                    </span>
+                  </a>
+
+                </div>
+
+
+                <div
+                  class="services-stack-visual"
+                  aria-hidden="true"
+                >
+
+                  <figure class="services-montage services-montage--illustrated">
+
+                    <img
+                      src="<%= service.imageSrc %>?v=3"
+                      alt="<%= name %>"
+                      width="560"
+                      height="352"
+                      loading="lazy"
+                      decoding="async"
+                    />
+
+                  </figure>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      <% }); %>
+
+    </section>
+
+
+    <!-- CTA Banner -->
+
+    <section
+      class="services-cta-banner"
+      aria-labelledby="services-cta-banner-title"
+    >
+
+      <div class="services-shell">
+
+        <div class="services-cta-banner-card services-reveal">
+
+          <div
+            class="services-cta-banner-glow"
+            aria-hidden="true"
+          ></div>
+
+          <div
+            class="services-cta-banner-grid"
+            aria-hidden="true"
+          ></div>
+
+          <div class="services-cta-banner-inner">
+
+            <h2
+              id="services-cta-banner-title"
+              class="services-cta-banner-title"
+            >
+              <%= t('services.bannerTitle') %>
+            </h2>
+
+            <a
+              id="services-contact-cta"
+              class="btn-brand services-cta-banner-btn"
+              href="/contact"
+            >
+              <span>
+                <%= t('services.bannerCta') %>
+              </span>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Testimonials -->
+
+    <section
+      class="services-testimonials"
+      aria-labelledby="services-testimonials-title"
+    >
+
+      <div class="services-shell services-testimonials-header">
+
+        <h2
+          id="services-testimonials-title"
+          class="services-testimonials-title"
+        >
+          <%= t('services.testimonialsTitle') %>
+        </h2>
+
+
+        <button
+          type="button"
+          class="services-testimonials-cta"
+          data-action="review"
+        >
+
+          <svg
+            class="icon icon-sm"
+            aria-hidden="true"
+          >
+            <use href="#icon-star"></use>
+          </svg>
+
+          <span>
+            <%= t('services.reviewCta') %>
+          </span>
+
+        </button>
+
+      </div>
+
+
+      <div
+        class="services-testimonials-marquees"
+        aria-hidden="true"
+      >
+
+        <!-- Top row -->
+
+        <div class="services-testimonials-row">
+
+          <div class="services-testimonials-rail">
+
+            <div class="services-testimonials-track services-testimonials-track--forward">
+
+              <div
+                class="services-testimonials-track-group"
+                id="services-testimonials-group-top"
+              ></div>
+
+              <div
+                class="services-testimonials-track-group"
+                id="services-testimonials-group-top-clone"
+                aria-hidden="true"
+              ></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Bottom row -->
+
+        <div class="services-testimonials-row">
+
+          <div class="services-testimonials-rail">
+
+            <div class="services-testimonials-track services-testimonials-track--reverse">
+
+              <div
+                class="services-testimonials-track-group"
+                id="services-testimonials-group-bottom"
+              ></div>
+
+              <div
+                class="services-testimonials-track-group"
+                id="services-testimonials-group-bottom-clone"
+                aria-hidden="true"
+              ></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Accessible testimonials -->
+
+      <div class="services-shell">
+
+        <ul
+          class="visually-hidden"
+          id="services-testimonials-a11y"
+        ></ul>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</main>

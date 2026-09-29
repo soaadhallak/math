@@ -1,0 +1,139 @@
+<div id="contact-modal" class="modal-overlay" hidden>
+        <div class="modal modal-sm">
+          <button type="button" class="modal-close" data-close="contact" aria-label="Close">
+            <svg class="icon"><use href="#icon-x"></use></svg>
+          </button>
+
+          <div id="contact-form-view">
+            <div class="modal-kicker">
+              <svg class="icon icon-xs ice"><use href="#icon-phone"></use></svg>
+              <span data-i18n="contact.kicker">Get In Touch</span>
+            </div>
+            <h2 class="modal-title title-brand" data-i18n="contact.title">Start a project</h2>
+            <p class="modal-sub" data-i18n="contact.subtitle">
+              Share your scope and timeline. We reply within two business days.
+            </p>
+
+            <form id="contact-form" class="contact-form">
+              <div class="field">
+                <label for="contact-name" data-i18n="contact.name">Your Name</label>
+                <input id="contact-name" type="text" required data-i18n-placeholder="contact.namePh" placeholder="Your Name" />
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="contact-email" data-i18n="contact.email">Email</label>
+                  <input id="contact-email" type="email" required placeholder="name@company.com" />
+                </div>
+                <div class="field">
+                  <label for="contact-phone" data-i18n="contact.phone">Phone</label>
+                  <input id="contact-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+963 ..." />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="contact-service" data-i18n="contact.service">Service</label>
+                <select id="contact-service">
+                  <option value="Web Development" data-i18n="contact.optWeb">Web design and development</option>
+                  <option value="AI Solutions" data-i18n="contact.optAi">Artificial intelligence solutions</option>
+                  <option value="Smart Home" data-i18n="contact.optSmarthome">Smart home systems</option>
+                  <option value="Cloud Services" data-i18n="contact.optCloud">Cloud services</option>
+                  <option value="Cybersecurity" data-i18n="contact.optSecurity">Cybersecurity</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="contact-details" data-i18n="contact.details">Project Details</label>
+                <textarea id="contact-details" rows="2" data-i18n-placeholder="contact.detailsPh" placeholder="Tell us about your requirements..."></textarea>
+              </div>
+
+              <div class="modal-actions">
+                <button type="button" class="btn-ghost" data-close="contact" data-i18n="contact.cancel">Cancel</button>
+                <button type="submit" class="btn-brand btn-sm">
+                  <svg class="icon icon-xs"><use href="#icon-send"></use></svg>
+                  <span data-i18n="contact.send">Send Message</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div id="contact-success-view" class="success-view" hidden>
+            <div class="success-icon">
+              <svg class="icon icon-md ice"><use href="#icon-check-circle"></use></svg>
+            </div>
+            <h3 class="success-title title-brand" data-i18n="contact.successTitle">Message Received</h3>
+            <p class="success-text" data-i18n="contact.successText">
+              Thank you for reaching out to Asas Soft. We will get back to you shortly.
+            </p>
+            <button type="button" class="btn-brand btn-sm" id="contact-done-btn" data-i18n="contact.done">Done</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="review-modal" class="modal-overlay" hidden>
+        <div class="modal modal-sm" role="dialog" aria-modal="true" aria-labelledby="review-modal-title">
+          <button type="button" class="modal-close" data-close="review" aria-label="Close">
+            <svg class="icon"><use href="#icon-x"></use></svg>
+          </button>
+
+          <div id="review-form-view">
+            <div class="modal-kicker">
+              <svg class="icon icon-xs ice"><use href="#icon-star"></use></svg>
+              <span data-i18n="servicesPage.reviewKicker">Client review</span>
+            </div>
+            <h2 id="review-modal-title" class="modal-title title-brand" data-i18n="servicesPage.reviewTitle">Share your experience</h2>
+            <p class="modal-sub" data-i18n="servicesPage.reviewSubtitle">
+              Your review is sent for approval before it appears on this page.
+            </p>
+
+            <form id="review-form" class="contact-form">
+              <div class="field-row">
+                <div class="field">
+                  <label for="review-name" data-i18n="servicesPage.reviewName">Your name</label>
+                  <input id="review-name" name="name" type="text" required maxlength="80" data-i18n-placeholder="servicesPage.reviewNamePh" placeholder="Full name" />
+                </div>
+                <div class="field">
+                  <label for="review-company" data-i18n="servicesPage.reviewCompany">Company (optional)</label>
+                  <input id="review-company" name="company" type="text" maxlength="80" data-i18n-placeholder="servicesPage.reviewCompanyPh" placeholder="If you have one" />
+                </div>
+              </div>
+
+              <div class="field">
+                <span class="services-review-rating-label" id="review-rating-label" data-i18n="servicesPage.reviewRating">Your rating</span>
+                <div class="services-review-stars" role="radiogroup" aria-labelledby="review-rating-label">
+                  <button type="button" class="services-review-star-btn is-active" data-rating="1" aria-label="1" aria-checked="true" role="radio"></button>
+                  <button type="button" class="services-review-star-btn is-active" data-rating="2" aria-label="2" aria-checked="false" role="radio"></button>
+                  <button type="button" class="services-review-star-btn is-active" data-rating="3" aria-label="3" aria-checked="false" role="radio"></button>
+                  <button type="button" class="services-review-star-btn is-active" data-rating="4" aria-label="4" aria-checked="false" role="radio"></button>
+                  <button type="button" class="services-review-star-btn is-active" data-rating="5" aria-label="5" aria-checked="true" role="radio"></button>
+                </div>
+                <input type="hidden" id="review-rating" name="rating" value="5" />
+              </div>
+
+              <div class="field">
+                <label for="review-text" data-i18n="servicesPage.reviewText">Your review</label>
+                <textarea id="review-text" name="text" rows="3" required maxlength="320" data-i18n-placeholder="servicesPage.reviewTextPh" placeholder="What did we deliver for your project?"></textarea>
+              </div>
+
+              <div class="modal-actions">
+                <button type="button" class="btn-ghost" data-close="review" data-i18n="servicesPage.reviewCancel">Cancel</button>
+                <button type="submit" class="btn-brand btn-sm">
+                  <svg class="icon icon-xs" aria-hidden="true"><use href="#icon-send"></use></svg>
+                  <span data-i18n="servicesPage.reviewSubmit">Submit review</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div id="review-success-view" class="success-view" hidden>
+            <div class="success-icon">
+              <svg class="icon icon-md ice"><use href="#icon-check-circle"></use></svg>
+            </div>
+            <h3 class="success-title title-brand" data-i18n="servicesPage.reviewSuccessTitle">Review received</h3>
+            <p class="success-text" data-i18n="servicesPage.reviewSuccessText">
+              Thanks. Our team will review it and publish it if approved.
+            </p>
+            <button type="button" class="btn-brand btn-sm" id="review-done-btn" data-i18n="servicesPage.reviewDone">Done</button>
+          </div>
+        </div>
+      </div>

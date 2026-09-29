@@ -1,0 +1,22 @@
+{
+  "name": "monorepo-project",
+  "private": true,
+  "scripts": {
+    "start": "npm run start -w website",
+    "dev": "npm run dev -w website",
+    "dev:admin": "npm run dev -w admin",
+    "build": "npm run build -w admin"
+  },
+  "workspaces": [
+    "admin",
+    "shared",
+    "website"
+  ],
+  "version": "1.0.0",
+  "description": "Full-Stack Website",
+  "main": "website/src/main.js",
+  "type": "module",
+  "keywords": [],
+  "author": "Asas Soft",
+  "license": "ISC"
+}

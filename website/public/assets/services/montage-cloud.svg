@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 352" fill="none" aria-hidden="true">
+  <style>
+    .cloud { animation: float 4s ease-in-out infinite; }
+    .led { animation: blink 1.6s ease-in-out infinite; }
+    .led-b { animation: blink 1.6s ease-in-out 0.25s infinite; }
+    .led-c { animation: blink 1.6s ease-in-out 0.5s infinite; }
+    .ring { transform-origin: 380px 260px; animation: spin 7s linear infinite; }
+    .chart { stroke-dasharray: 7 6; animation: dash 4.2s linear infinite; }
+    .pipe { animation: pulse 2.2s ease-in-out infinite; }
+    .rack { animation: rack 3s ease-in-out infinite; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes dash {
+      to { stroke-dashoffset: -100; }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 1; }
+    }
+    @keyframes rack {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.95; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .cloud, .led, .led-b, .led-c, .ring, .chart, .pipe, .rack { animation: none !important; }
+    }
+  </style>
+  <rect width="560" height="352" rx="8" fill="#060912"/>
+  <rect x="12" y="12" width="260" height="328" rx="6" fill="#0c1222" stroke="#1e3a5f" stroke-width="1.5"/>
+  <rect x="280" y="12" width="268" height="158" rx="6" fill="#0c1222" stroke="#1e3a5f" stroke-width="1.5"/>
+  <rect x="280" y="182" width="268" height="158" rx="6" fill="#0c1222" stroke="#1e3a5f" stroke-width="1.5"/>
+  <path class="cloud" d="M120 120 C120 96 148 88 164 104 C172 80 208 76 224 100 C252 96 268 120 256 144 C276 152 272 180 248 184 L96 184 C72 180 68 152 88 140 C80 124 96 108 120 120 Z" fill="#121a2e" stroke="#60a5fa" stroke-width="1.5" stroke-opacity="0.6"/>
+  <rect x="72" y="200" width="48" height="100" rx="3" fill="#0a101c" stroke="#2a4060" stroke-width="1"/>
+  <rect x="128" y="200" width="48" height="100" rx="3" fill="#0a101c" stroke="#2a4060" stroke-width="1"/>
+  <rect x="184" y="200" width="48" height="100" rx="3" fill="#0a101c" stroke="#2a4060" stroke-width="1"/>
+  <g class="rack" fill="#60a5fa">
+    <rect x="80" y="212" width="32" height="4" rx="1"/><rect x="80" y="224" width="32" height="4" rx="1"/>
+    <rect x="80" y="236" width="32" height="4" rx="1"/><rect x="80" y="248" width="32" height="4" rx="1"/>
+    <rect x="136" y="212" width="32" height="4" rx="1"/><rect x="136" y="224" width="32" height="4" rx="1"/>
+    <rect x="136" y="236" width="32" height="4" rx="1"/><rect x="136" y="248" width="32" height="4" rx="1"/>
+    <rect x="192" y="212" width="32" height="4" rx="1"/><rect x="192" y="224" width="32" height="4" rx="1"/>
+    <rect x="192" y="236" width="32" height="4" rx="1"/><rect x="192" y="248" width="32" height="4" rx="1"/>
+  </g>
+  <circle class="led" cx="88" cy="268" r="3" fill="#60a5fa"/>
+  <circle class="led-b" cx="144" cy="268" r="3" fill="#60a5fa"/>
+  <circle class="led-c" cx="200" cy="268" r="3" fill="#60a5fa"/>
+  <line x1="96" y1="184" x2="96" y2="200" stroke="#60a5fa" stroke-width="1.5" opacity="0.55"/>
+  <line x1="152" y1="184" x2="152" y2="200" stroke="#60a5fa" stroke-width="1.5" opacity="0.45"/>
+  <line x1="208" y1="184" x2="208" y2="200" stroke="#60a5fa" stroke-width="1.5" opacity="0.45"/>
+  <rect class="pipe" x="300" y="40" width="56" height="36" rx="4" fill="#121a2e" stroke="#60a5fa" stroke-width="1.2"/>
+  <rect x="372" y="40" width="56" height="36" rx="4" fill="#121a2e" stroke="#2a4060" stroke-width="1"/>
+  <rect x="444" y="40" width="56" height="36" rx="4" fill="#121a2e" stroke="#2a4060" stroke-width="1"/>
+  <line x1="356" y1="58" x2="372" y2="58" stroke="#60a5fa" stroke-width="2" opacity="0.7"/>
+  <line x1="428" y1="58" x2="444" y2="58" stroke="#2a4060" stroke-width="2"/>
+  <polygon points="364,54 372,58 364,62" fill="#60a5fa" opacity="0.7"/>
+  <text x="328" y="62" text-anchor="middle" fill="#64748b" font-family="system-ui,sans-serif" font-size="8">build</text>
+  <text x="400" y="62" text-anchor="middle" fill="#64748b" font-family="system-ui,sans-serif" font-size="8">stage</text>
+  <text x="472" y="62" text-anchor="middle" fill="#64748b" font-family="system-ui,sans-serif" font-size="8">prod</text>
+  <rect x="300" y="90" width="228" height="56" rx="4" fill="#0a101c" stroke="#2a4060" stroke-width="1"/>
+  <polyline class="chart" points="312,122 340,108 368,118 396,100 424,112 452,96 480,108 516,92" stroke="#60a5fa" stroke-width="1.8" fill="none" opacity="0.7"/>
+  <circle cx="380" cy="260" r="52" fill="none" stroke="#2a4060" stroke-width="1"/>
+  <circle cx="380" cy="260" r="38" fill="none" stroke="#243049" stroke-width="1"/>
+  <circle cx="380" cy="260" r="24" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-opacity="0.65"/>
+  <path class="ring" d="M380 212 A48 48 0 0 1 420 280" stroke="#60a5fa" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.85"/>
+  <circle cx="380" cy="260" r="6" fill="#1a2540" stroke="#60a5fa" stroke-width="1.5" opacity="0.75"/>
+  <rect x="460" y="210" width="88" height="88" rx="4" fill="#121a2e" stroke="#2a4060" stroke-width="1"/>
+  <rect x="472" y="228" width="64" height="8" rx="2" fill="#243049"/>
+  <rect x="472" y="244" width="48" height="8" rx="2" fill="#1a2540"/>
+  <rect x="472" y="260" width="56" height="8" rx="2" fill="#60a5fa" opacity="0.5"/>
+  <rect x="472" y="276" width="40" height="8" rx="2" fill="#1a2540"/>
+</svg>

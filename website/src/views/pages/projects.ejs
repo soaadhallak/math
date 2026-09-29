@@ -1,0 +1,286 @@
+<main class="projects-main" id="projects-main">
+
+  <section class="about-hero" aria-labelledby="projects-hero-title">
+    <div class="about-hero-glow" aria-hidden="true">
+      <span class="about-beam about-beam--tl"></span>
+      <span class="about-beam about-beam--tr"></span>
+      <span class="about-beam about-beam--mid"></span>
+      <span class="about-beam about-beam--bl"></span>
+    </div>
+
+    <div class="about-shell about-hero-content">
+      <span class="about-badge">
+        <%= t('projects.heroBadge') %>
+      </span>
+
+      <h1 id="projects-hero-title" class="about-hero-title">
+        <%= t('projects.heroTitle') %>
+      </h1>
+
+      <p class="about-hero-sub">
+        <%= t('projects.heroSub') %>
+      </p>
+    </div>
+  </section>
+
+
+  <section
+    class="projects-gallery"
+    aria-labelledby="projects-gallery-title"
+  >
+    <div class="projects-shell">
+
+      <header class="projects-gallery-head">
+
+        <div class="projects-gallery-intro">
+          <h2
+            id="projects-gallery-title"
+            class="projects-gallery-title"
+          >
+            <span class="projects-gallery-title-lead">
+              <%= t('projects.galleryTitleOur') %>
+            </span>
+
+            <span class="projects-gallery-title-mark">
+              <%= t('projects.galleryTitleRest') %>
+            </span>
+          </h2>
+        </div>
+
+
+        <div
+          class="projects-filters"
+          role="group"
+          aria-label="<%= t('projects.filterLabel') %>"
+        >
+
+          <button
+            type="button"
+            class="projects-filter is-active"
+            data-filter="all"
+            aria-pressed="true"
+          >
+            <span class="projects-filter-label">
+              <%= t('projects.filterAll') %>
+            </span>
+          </button>
+
+          <% projectsCategories.forEach(function(category) { %>
+
+            <button
+              type="button"
+              class="projects-filter"
+              data-filter="<%= category.slug %>"
+              aria-pressed="false"
+            >
+              <span class="projects-filter-label">
+                <%= category.translations?.find(function(tr) {
+                  return tr.field === 'name';
+                })?.value || category.slug %>
+              </span>
+            </button>
+
+          <% }); %>
+
+        </div>
+
+      </header>
+
+
+      <div class="projects-grid" id="projects-grid">
+
+        <% if (typeof projects !== 'undefined' && projects && projects.length) { %>
+
+          <% projects.forEach(function(project) {
+
+            var name =
+              project.translations?.find(function(tr) {
+                return tr.field === 'name';
+              })?.value || 'Project';
+
+            var description =
+              project.translations?.find(function(tr) {
+                return tr.field === 'description';
+              })?.value || '';
+
+            var type =
+              project.projectCategory?.translations?.find(function(tr) {
+                return tr.field === 'name';
+              })?.value ||
+              '';
+
+            var categorySlug =
+              project.projectCategory?.slug ||
+              '';
+
+            var href =
+              project.externalUrl ||
+              '/contact';
+
+          %>
+
+            <article
+              class="projects-card"
+              data-type="<%= categorySlug %>"
+              data-project="<%= project.slug %>"
+            >
+
+              <div class="projects-card-media">
+                <img
+                  src="<%= project.imageSrc %>"
+                  alt="<%= name %>"
+                  width="720"
+                  height="960"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+
+              <span class="projects-card-type">
+                <%= type %>
+              </span>
+
+
+              <div class="projects-card-body">
+
+                <a
+                  class="projects-card-watch"
+                  href="<%= href %>"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span
+                    class="projects-card-play"
+                    aria-hidden="true"
+                  >
+                    <svg class="icon">
+                      <use href="#icon-eye"></use>
+                    </svg>
+                  </span>
+
+                  <span>
+                    <%= t('projects.viewProject') %>
+                  </span>
+                </a>
+
+
+                <h3 class="projects-card-title">
+                  <%= name %>
+                </h3>
+
+
+                <p class="projects-card-text">
+                  <%= description %>
+                </p>
+
+              </div>
+
+            </article>
+
+          <% }); %>
+
+        <% } %>
+
+
+        <p
+          class="projects-empty"
+          id="projects-empty"
+          hidden
+        >
+          <%= t('projects.empty') %>
+        </p>
+
+      </div>
+
+
+      <div class="projects-pager">
+
+        <div class="projects-pager-nav">
+
+          <button
+            type="button"
+            class="projects-pager-btn"
+            id="projects-prev"
+            aria-label="<%= t('projects.prevPage') %>"
+          >
+            <svg
+              class="icon"
+              aria-hidden="true"
+            >
+              <use href="#icon-chevron-left"></use>
+            </svg>
+          </button>
+
+
+          <span
+  class="projects-pager-status"
+  id="projects-page-status"
+  data-template="<%= t('projects.pageOf') %>"
+>
+  <%= t('projects.pageOf', {
+    current: 1,
+    total: 1
+  }) %>
+</span>
+
+
+          <button
+            type="button"
+            class="projects-pager-btn"
+            id="projects-next"
+            aria-label="<%= t('projects.nextPage') %>"
+          >
+            <svg
+              class="icon"
+              aria-hidden="true"
+            >
+              <use href="#icon-chevron-right"></use>
+            </svg>
+          </button>
+
+        </div>
+
+
+        <div class="projects-page-size">
+
+          <span class="projects-page-size-label">
+            <%= t('projects.showLabel') %>
+          </span>
+
+
+          <div
+            class="projects-page-size-options"
+            role="group"
+            aria-label="<%= t('projects.itemsPerPage') %>"
+          >
+
+            <button
+              type="button"
+              class="projects-page-size-btn is-active"
+              data-size="5"
+              aria-pressed="true"
+            >
+              <%= t('projects.showSize5') %>
+            </button>
+
+
+            <button
+              type="button"
+              class="projects-page-size-btn"
+              data-size="10"
+              aria-pressed="false"
+            >
+              <%= t('projects.showSize10') %>
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>

@@ -1,0 +1,286 @@
+/* Legal pages (terms, privacy) — Trust & Authority + site about-hero
+   UX: high contrast body text, 1.65–1.75 line-height, readable measure */
+
+.legal-page .app {
+  min-height: 100svh;
+}
+
+.legal-page .site-footer {
+  position: relative;
+  z-index: 6;
+  isolation: isolate;
+  margin-top: auto;
+  box-shadow: 0 -20px 40px rgba(5, 5, 12, 0.75);
+}
+
+.legal-main {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* Keep about-hero glow from bleeding into footer */
+.legal-page .legal-hero.about-hero {
+  overflow: hidden;
+  padding-bottom: clamp(2.75rem, 6vh, 4rem);
+}
+
+.legal-page .legal-hero .about-hero-glow {
+  bottom: 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
+}
+
+.legal-page .legal-hero .about-hero-title {
+  max-width: 18ch;
+  margin-inline: auto;
+}
+
+/* —— Document column —— */
+.legal-shell {
+  width: min(720px, calc(100% - 2.5rem));
+  margin: 0 auto;
+  padding: 0.5rem 0 clamp(3.75rem, 8vh, 5.5rem);
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 480px) {
+  .legal-shell {
+    width: min(720px, calc(100% - 1.5rem));
+    padding: 0.25rem 0 clamp(3rem, 8vh, 4.5rem);
+  }
+
+  .legal-section h2 {
+    font-size: clamp(1.15rem, 5vw, 1.35rem);
+  }
+}
+
+.legal-article {
+  margin: 0;
+}
+
+.legal-lead {
+  margin: 0 0 1.75rem;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: clamp(1.05rem, 2.2vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: #e2e8f0;
+}
+
+.legal-doc {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.legal-section {
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.14);
+  scroll-margin-top: calc(var(--header-offset, 6.15rem) + 1rem);
+}
+
+.legal-section:first-child {
+  border-top: none;
+  padding-top: 0.25rem;
+}
+
+.legal-section h2 {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 0 0 0.7rem;
+}
+
+.legal-num {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.75rem;
+  height: 1.75rem;
+  margin-top: 0.1rem;
+  border-radius: 0.4rem;
+  background: rgba(127, 208, 247, 0.12);
+  border: 1px solid rgba(127, 208, 247, 0.28);
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #7fd0f7;
+}
+
+.legal-heading {
+  flex: 1;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  color: #f8fafc;
+}
+
+.legal-section p {
+  margin: 0;
+  padding-inline-start: calc(1.75rem + 0.75rem);
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #cbd5e1;
+}
+
+@media (max-width: 520px) {
+  .legal-section p {
+    padding-inline-start: 0;
+  }
+}
+
+html[dir="rtl"] .legal-lead,
+html[dir="rtl"] .legal-heading,
+html[dir="rtl"] .legal-section p {
+  font-family: "IBM Plex Sans Arabic", "Tajawal", system-ui, sans-serif;
+}
+
+html[dir="rtl"] .legal-section p {
+  padding-inline-start: calc(1.75rem + 0.75rem);
+  padding-inline-end: 0;
+}
+
+/* —— 404 —— */
+.not-found-page .app {
+  min-height: 100svh;
+}
+
+.not-found-page .site-footer {
+  position: relative;
+  z-index: 6;
+  isolation: isolate;
+  margin-top: auto;
+  background:
+    linear-gradient(
+      180deg,
+      #05070e 0%,
+      #0a1222 48%,
+      #0e1a30 100%
+    );
+  box-shadow: 0 -24px 48px rgba(5, 5, 12, 0.85);
+}
+
+.not-found-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.not-found-stage {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:
+    calc(var(--header-offset, 6.15rem) + 2rem)
+    1.25rem
+    2.75rem;
+  overflow: hidden;
+  background: #05050c;
+}
+
+.not-found-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.not-found-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.55;
+}
+
+.not-found-glow--a {
+  width: min(70vw, 520px);
+  height: min(70vw, 520px);
+  top: 8%;
+  left: 50%;
+  transform: translateX(-58%);
+  background: rgba(59, 130, 246, 0.28);
+}
+
+.not-found-glow--b {
+  width: min(50vw, 360px);
+  height: min(50vw, 360px);
+  bottom: 6%;
+  right: 12%;
+  background: rgba(212, 168, 75, 0.12);
+}
+
+.not-found-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(rgba(127, 208, 247, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(127, 208, 247, 0.09) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 65% 55% at 50% 42%, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 65% 55% at 50% 42%, #000 20%, transparent 75%);
+}
+
+.not-found-panel {
+  position: relative;
+  z-index: 1;
+  width: min(34rem, 100%);
+  text-align: center;
+}
+
+.not-found-code {
+  margin: 0 0 0.35rem;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: clamp(4.5rem, 18vw, 7.5rem);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 0.92;
+  color: rgba(127, 208, 247, 0.14);
+  user-select: none;
+}
+
+.not-found-title {
+  margin: 0 0 0.75rem;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: clamp(1.55rem, 3.6vw, 2.15rem);
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: #f3f6fb;
+}
+
+.not-found-text {
+  margin: 0 auto 1.75rem;
+  max-width: 28rem;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: rgba(169, 178, 196, 0.95);
+}
+
+.not-found-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.not-found-primary {
+  min-width: 11.5rem;
+}
+
+html[dir="rtl"] .not-found-title,
+html[dir="rtl"] .not-found-text {
+  font-family: "IBM Plex Sans Arabic", "Tajawal", system-ui, sans-serif;
+}

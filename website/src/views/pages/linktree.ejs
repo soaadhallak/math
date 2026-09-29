@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="<%= language || 'en' %>" dir="<%= language === 'ar' ? 'rtl' : 'ltr' %>">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/assets/images/favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+    <%- include('../partials/meta') %>
+    <link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, "Segoe UI", sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(160deg, #2c6e54 0%, #173a2c 100%);
+            background-attachment: fixed;
+            color: #fff;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 52px 18px 40px;
+            -webkit-font-smoothing: antialiased;
+        }
+        .lt { width: 100%; max-width: 460px; text-align: center; }
+        .lt__logo { display: block; width: 240px; max-width: 74%; height: auto; margin: 0 auto 24px; }
+        .lt__tagline {
+            font-size: 15px; line-height: 1.65; font-weight: 400;
+            color: rgba(255, 255, 255, 0.82);
+            max-width: 360px; margin: 0 auto 32px;
+        }
+        .lt__links { display: flex; flex-direction: column; gap: 14px; }
+        .lt__btn {
+            position: relative;
+            display: flex; align-items: center; justify-content: center;
+            min-height: 56px; padding: 14px 52px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            color: #fff; text-decoration: none;
+            font-size: 15px; font-weight: 600; letter-spacing: 0.2px;
+            -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+            transition: transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+        }
+        .lt__btn:hover, .lt__btn:focus-visible {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #f7941e;
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
+            outline: none;
+        }
+        .lt__btn i {
+            position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+            font-size: 20px; color: #f7941e;
+        }
+        [dir="rtl"] .lt__btn i { left: auto; right: 20px; }
+        .lt__btn--whatsapp i { color: #25d366; }
+        .lt__footer { margin-top: 36px; font-size: 12.5px; color: rgba(255, 255, 255, 0.55); }
+        .lt__footer a { color: rgba(255, 255, 255, 0.82); text-decoration: none; }
+        .lt__footer a:hover { color: #f7941e; }
+        @media (max-width: 480px) {
+            body { padding-top: 38px; }
+            .lt__btn { font-size: 14.5px; }
+        }
+    </style>
+</head>
+<body>
+    <main class="lt">
+        <a href="/" aria-label="<%= company.name %>">
+            <img class="lt__logo" src="<%= company.logoPath %>" alt="<%= company.name %> logo">
+        </a>
+        <% if (company.tagline) { %>
+        <p class="lt__tagline"><%= company.tagline %></p>
+        <% } %>
+
+        <nav class="lt__links" aria-label="<%= company.name %> links">
+            <% if (company.whatsappNumber) { %>
+            <a class="lt__btn lt__btn--whatsapp" href="https://wa.me/<%= company.whatsappNumber.replace(/[^+\d]/g, '') %>" target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span>
+            </a>
+            <% } %>
+
+            <% if (company.phone) { %>
+            <a class="lt__btn" href="tel:<%= company.phone.replace(/[^+\d]/g, '') %>">
+                <i class="fa fa-phone" aria-hidden="true"></i><span>Call Us</span>
+            </a>
+            <% } %>
+
+            <% if (company.email) { %>
+            <a class="lt__btn" href="mailto:<%= company.email %>">
+                <i class="fa fa-envelope" aria-hidden="true"></i><span>Email</span>
+            </a>
+            <% } %>
+
+            <% if (company.locationUrl && company.locationUrl !== '#') { %>
+            <a class="lt__btn" href="<%= company.locationUrl %>" target="_blank" rel="noopener">
+                <i class="fa fa-map-marker-alt" aria-hidden="true"></i><span>Location</span>
+            </a>
+            <% } %>
+
+            <% if (company.instagramUrl && company.instagramUrl !== '#') { %>
+            <a class="lt__btn" href="<%= company.instagramUrl %>" target="_blank" rel="noopener">
+                <i class="fab fa-instagram" aria-hidden="true"></i><span>Instagram</span>
+            </a>
+            <% } %>
+
+            <% if (company.facebookUrl && company.facebookUrl !== '#') { %>
+            <a class="lt__btn" href="<%= company.facebookUrl %>" target="_blank" rel="noopener">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i><span>Facebook</span>
+            </a>
+            <% } %>
+
+            <% if (company.linkedinUrl && company.linkedinUrl !== '#') { %>
+            <a class="lt__btn" href="<%= company.linkedinUrl %>" target="_blank" rel="noopener">
+                <i class="fab fa-linkedin-in" aria-hidden="true"></i><span>LinkedIn</span>
+            </a>
+            <% } %>
+
+            <a class="lt__btn" href="/">
+                <i class="fa fa-globe" aria-hidden="true"></i><span>Website</span>
+            </a>
+        </nav>
+
+        <footer class="lt__footer">
+            &copy; <%= new Date().getFullYear() %> <a href="/"><%= company.legalName || company.name %></a>
+        </footer>
+    </main>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<footer class="site-footer" role="contentinfo">
+        <div class="footer-atmosphere" aria-hidden="true"></div>
+        <svg class="footer-watermark" viewBox="0 0 420 320" fill="none" aria-hidden="true">
+          <g stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M48 248h72v-88H48zM140 248h88v-132h-88zM248 248h64v-56h-64zM328 248h52v-100h-52z" opacity="0.9" />
+            <path d="M68 160h32M172 116h24M268 192h24M348 148h20" />
+            <circle cx="84" cy="148" r="5" />
+            <circle cx="184" cy="104" r="5" />
+            <circle cx="280" cy="180" r="5" />
+            <circle cx="358" cy="136" r="5" />
+            <path d="M84 148c28-36 72-48 100-44M184 104c36 18 64 52 96 76M280 180c28-12 52-32 78-44" />
+            <path d="M40 268h340M56 284h120M220 284h140" opacity="0.55" />
+            <path d="M300 72c18 8 34 28 40 52M320 56c12 6 22 18 28 34" opacity="0.7" />
+            <circle cx="300" cy="72" r="4" />
+            <circle cx="320" cy="56" r="3.5" />
+          </g>
+        </svg>
+
+        <div class="footer-inner">
+          <div class="footer-main">
+            <div class="footer-brand">
+              <a href="/" class="footer-logo" aria-label="Asas Soft">
+                <img
+                  class="footer-logo-img"
+                  src="/assets/images/brand/logo.png"
+                  alt="Asas Soft"
+                  width="160"
+                  height="48"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <p class="footer-tagline">
+                <%= t('footer.description') %>
+              </p>
+              <div class="footer-social">
+                <a class="footer-social-link" href="https://www.facebook.com/asas.soft.sy" target="_blank" rel="noopener noreferrer" aria-label="Facebook" data-i18n-aria="footer.facebook">
+                  <svg class="icon icon-brand" aria-hidden="true"><use href="#icon-facebook"></use></svg>
+                </a>
+                <a class="footer-social-link" href="https://x.com/AsasSoftSy" target="_blank" rel="noopener noreferrer" aria-label="X" data-i18n-aria="footer.twitter">
+                  <svg class="icon icon-brand" aria-hidden="true"><use href="#icon-twitter"></use></svg>
+                </a>
+                <a class="footer-social-link" href="https://www.instagram.com/asas.soft.sy" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-i18n-aria="footer.instagram">
+                  <svg class="icon icon-brand" aria-hidden="true"><use href="#icon-instagram"></use></svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="footer-col">
+              <h3 class="footer-col-title">
+                <%= t('footer.links') %>
+              </h3>
+              <ul class="footer-links">
+                <li>
+                  <a href="/" class="footer-link">
+                    <span class="footer-link-icon footer-link-dot" aria-hidden="true"></span>
+                    <span><%= t('nav.home') %></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/about" class="footer-link">
+                    <span class="footer-link-icon footer-link-dot" aria-hidden="true"></span>
+                    <span><%= t('nav.about') %></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/projects" class="footer-link">
+                    <span class="footer-link-icon footer-link-dot" aria-hidden="true"></span>
+                    <span><%= t('nav.projects') %></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/services" class="footer-link">
+                    <span class="footer-link-icon footer-link-dot" aria-hidden="true"></span>
+                    <span><%= t('nav.services') %></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/contact" class="footer-link">
+                    <span class="footer-link-icon footer-link-dot" aria-hidden="true"></span>
+                    <span><%= t('nav.contact') %></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/privacy" class="footer-link">
+                    <span class="footer-link-icon footer-link-dot" aria-hidden="true"></span>
+                    <span><%= t('footer.privacyPolicy') %></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/terms" class="footer-link">
+                    <span class="footer-link-icon footer-link-dot" aria-hidden="true"></span>
+                    <span><%= t('footer.termsAndConditions') %></span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h3 class="footer-col-title" data-i18n="footer.contact">Contact</h3>
+              <ul class="footer-contact">
+                <li>
+                  <a class="footer-contact-row" href="https://wa.me/<%= company.phone.replace(/[^0-9]/g, '') %>" target="_blank" rel="noopener">
+                    <svg class="icon icon-sm footer-contact-icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
+                    <span><%= company.phone %></span>
+                  </a>
+         
+                </li>
+                <li>
+                  <a class="footer-contact-row" href="mailto:info@asassoft.com">
+                    <svg class="icon icon-sm footer-contact-icon" aria-hidden="true"><use href="#icon-mail"></use></svg>
+                    <span><%= company.email %></span>
+                  </a>
+                </li>
+                <li>
+                  <div class="footer-contact-row">
+                    <svg class="icon icon-sm footer-contact-icon" aria-hidden="true"><use href="#icon-map-pin"></use></svg>
+                    <span><%= t('footer.location') %></span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bar">
+          <p class="footer-copy">
+            <span><%= t('footer.allRightsReserved') %></span>
+            <span aria-hidden="true"> · </span>
+            <span aria-hidden="true">©</span> <%= new Date().getFullYear() %> <%= company.name %>
+          </p>
+        </div>
+      </footer>

@@ -1,0 +1,15 @@
+# Asas Soft memory
+
+Before UI, branding, scroll, or section work: **Read `MEMORY.md`** at the project root and follow it.
+
+## Must preserve
+
+- Brand: **Asas Soft**, 60-30-10 — navy `#05050c` (60%), corporate blue `#5b9bcf` / `#1c4f8a` (30%), mustard `#d4a84b` CTAs + key icons only (10%). Soft logo accent stays blue. (Outfit / RTL: Tajawal + IBM Plex Sans Arabic)
+- Do not change brain GLB / hotspot math (positioning for scroll/UI only)
+- Manifest section: **no CTA**; height ~`108svh`; cinematic word reveal timings in MEMORY.md
+- Flight stage ~`290svh`, land at `0.68`, dwell ~`48svh`
+- Section 4 Why: ice/navy brand accordion (not pure black/white); one panel open; mustard CTA (static)
+
+## After design changes
+
+Update `MEMORY.md` in the same turn (tokens, heights, timings, copy conventions).

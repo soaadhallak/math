@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 352" fill="none" aria-hidden="true">
+  <style>
+    .node { animation: node-pulse 2.6s ease-in-out infinite; }
+    .node-b { animation: node-pulse 2.6s ease-in-out 0.35s infinite; }
+    .node-c { animation: node-pulse 2.6s ease-in-out 0.7s infinite; }
+    .flow { stroke-dasharray: 5 5; animation: dash 3.8s linear infinite; }
+    .flow-b { stroke-dasharray: 4 6; animation: dash 5s linear infinite reverse; }
+    .scan { animation: scan 3.2s ease-in-out infinite; }
+    .float { animation: float 3.8s ease-in-out infinite; }
+    .core { animation: core 2.8s ease-in-out infinite; }
+    @keyframes node-pulse {
+      0%, 100% { opacity: 0.35; transform: scale(0.92); transform-origin: center; transform-box: fill-box; }
+      50% { opacity: 1; transform: scale(1.12); transform-origin: center; transform-box: fill-box; }
+    }
+    @keyframes dash {
+      to { stroke-dashoffset: -100; }
+    }
+    @keyframes scan {
+      0%, 100% { transform: translateY(0); opacity: 0.35; }
+      50% { transform: translateY(18px); opacity: 1; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes core {
+      0%, 100% { opacity: 0.55; }
+      50% { opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .node, .node-b, .node-c, .flow, .flow-b, .scan, .float, .core { animation: none !important; }
+    }
+  </style>
+  <rect width="560" height="352" rx="8" fill="#060912"/>
+  <rect x="12" y="12" width="260" height="328" rx="6" fill="#0c1222" stroke="#1e3a5f" stroke-width="1.5"/>
+  <rect x="280" y="12" width="268" height="158" rx="6" fill="#0c1222" stroke="#1e3a5f" stroke-width="1.5"/>
+  <rect x="280" y="182" width="268" height="158" rx="6" fill="#0c1222" stroke="#1e3a5f" stroke-width="1.5"/>
+  <g stroke="#2a4060" stroke-width="1">
+    <line x1="80" y1="100" x2="160" y2="140"/><line x1="80" y1="100" x2="160" y2="200"/>
+    <line x1="80" y1="180" x2="160" y2="140"/><line x1="80" y1="180" x2="160" y2="200"/>
+    <line x1="80" y1="260" x2="160" y2="200"/><line x1="80" y1="260" x2="160" y2="260"/>
+    <line x1="160" y1="140" x2="240" y2="180"/><line x1="160" y1="200" x2="240" y2="180"/>
+    <line x1="160" y1="200" x2="240" y2="240"/><line x1="160" y1="260" x2="240" y2="240"/>
+    <line x1="240" y1="180" x2="240" y2="240"/>
+  </g>
+  <g>
+    <circle class="node" cx="80" cy="100" r="8" fill="#121a2e" stroke="#60a5fa" stroke-width="1.5"/>
+    <circle class="node-b" cx="80" cy="180" r="8" fill="#121a2e" stroke="#60a5fa" stroke-width="1.5"/>
+    <circle class="node-c" cx="80" cy="260" r="8" fill="#121a2e" stroke="#60a5fa" stroke-width="1.5"/>
+    <circle class="node-b" cx="160" cy="140" r="10" fill="#151d32" stroke="#60a5fa" stroke-width="1.5"/>
+    <circle class="node" cx="160" cy="200" r="10" fill="#151d32" stroke="#60a5fa" stroke-width="1.5"/>
+    <circle cx="160" cy="260" r="8" fill="#121a2e" stroke="#2a4060" stroke-width="1"/>
+    <circle class="core" cx="240" cy="180" r="12" fill="#1a2540" stroke="#60a5fa" stroke-width="2"/>
+    <circle class="node-c" cx="240" cy="240" r="10" fill="#151d32" stroke="#60a5fa" stroke-width="1.5"/>
+  </g>
+  <g class="float">
+    <rect x="200" y="268" width="72" height="52" rx="4" fill="#121a2e" stroke="#60a5fa" stroke-width="1.5" stroke-opacity="0.7"/>
+    <text x="236" y="300" text-anchor="middle" fill="#60a5fa" font-family="system-ui,sans-serif" font-size="14" font-weight="600" opacity="0.9">AI</text>
+  </g>
+  <line x1="188" y1="284" x2="200" y2="284" stroke="#2a4060" stroke-width="2"/>
+  <line x1="188" y1="304" x2="200" y2="304" stroke="#2a4060" stroke-width="2"/>
+  <line x1="272" y1="284" x2="284" y2="284" stroke="#2a4060" stroke-width="2"/>
+  <line x1="272" y1="304" x2="284" y2="304" stroke="#2a4060" stroke-width="2"/>
+  <rect x="300" y="36" width="228" height="110" rx="4" fill="#0a101c" stroke="#2a4060" stroke-width="1"/>
+  <path class="flow" d="M320 120 Q360 60 400 100 T480 70" stroke="#60a5fa" stroke-width="1.8" fill="none" opacity="0.8"/>
+  <path class="flow-b" d="M320 100 Q380 40 440 90 T520 55" stroke="#60a5fa" stroke-width="1.2" fill="none" opacity="0.5"/>
+  <rect x="312" y="44" width="48" height="6" rx="2" fill="#243049"/>
+  <rect x="312" y="58" width="72" height="4" rx="2" fill="#1a2540"/>
+  <rect x="310" y="200" width="100" height="120" rx="4" fill="#121a2e" stroke="#2a4060" stroke-width="1"/>
+  <line x1="326" y1="224" x2="394" y2="224" stroke="#243049" stroke-width="4" stroke-linecap="round"/>
+  <line x1="326" y1="244" x2="370" y2="244" stroke="#1a2540" stroke-width="4" stroke-linecap="round"/>
+  <line x1="326" y1="264" x2="390" y2="264" stroke="#1a2540" stroke-width="4" stroke-linecap="round"/>
+  <line class="scan" x1="318" y1="210" x2="402" y2="210" stroke="#60a5fa" stroke-width="2" opacity="0.75"/>
+  <rect x="430" y="210" width="108" height="100" rx="4" fill="#0a101c" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.5"/>
+  <line x1="442" y1="240" x2="526" y2="240" stroke="#60a5fa" stroke-width="1.5" opacity="0.6"/>
+  <line x1="442" y1="260" x2="510" y2="260" stroke="#60a5fa" stroke-width="1" opacity="0.45"/>
+  <line x1="442" y1="280" x2="520" y2="280" stroke="#60a5fa" stroke-width="1" opacity="0.45"/>
+  <path d="M408 260 L430 260 L430 240 L448 260" stroke="#60a5fa" stroke-width="1.2" fill="none" opacity="0.75"/>
+</svg>

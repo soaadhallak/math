@@ -1,0 +1,504 @@
+<main class="contact-main" id="contact-main">
+  <section class="about-hero" aria-labelledby="contact-hero-title">
+    <div class="about-hero-glow" aria-hidden="true">
+      <span class="about-beam about-beam--tl"></span>
+      <span class="about-beam about-beam--tr"></span>
+      <span class="about-beam about-beam--mid"></span>
+      <span class="about-beam about-beam--bl"></span>
+    </div>
+
+    <div class="about-shell about-hero-content">
+      <span class="about-badge">
+        <%= t('contact.heroBadge') %>
+      </span>
+
+      <h1 id="contact-hero-title" class="about-hero-title">
+        <%= t('contact.heroTitle') %>
+      </h1>
+
+      <p class="about-hero-sub">
+        <%= t('contact.heroSub') %>
+      </p>
+    </div>
+  </section>
+
+  <section class="contact-stage" aria-labelledby="contact-get-title">
+    <div class="contact-shell contact-stage-top">
+      <div class="contact-get">
+        <h2 id="contact-get-title" class="contact-get-title">
+          <%= t('contact.getTitle') %>
+        </h2>
+
+        <p class="contact-get-text">
+          <%= t('contact.getText') %>
+        </p>
+
+        <ul class="contact-channels">
+          <li class="contact-channel">
+            <svg
+              class="contact-channel-icon"
+              aria-hidden="true"
+            >
+              <use href="#icon-map-pin"></use>
+            </svg>
+
+            <div class="contact-channel-body">
+              <p class="contact-channel-name">
+                <%= t('contact.officeName') %>
+              </p>
+            </div>
+          </li>
+
+          <li class="contact-channel">
+            <svg
+              class="contact-channel-icon"
+              aria-hidden="true"
+            >
+              <use href="#icon-phone"></use>
+            </svg>
+
+            <div class="contact-channel-body">
+              <p class="contact-channel-name">
+                <%= t('contact.phoneLabel') %>
+              </p>
+
+              <a
+                class="contact-channel-detail contact-channel-link"
+                href="https://wa.me/963957779365"
+                target="_blank"
+                rel="noopener"
+              >
+                <%= t('contact.phoneValue') %>
+              </a>
+            </div>
+          </li>
+
+          <li class="contact-channel">
+            <svg
+              class="contact-channel-icon"
+              aria-hidden="true"
+            >
+              <use href="#icon-mail"></use>
+            </svg>
+
+            <div class="contact-channel-body">
+              <p class="contact-channel-name">
+                <%= t('contact.emailLabel') %>
+              </p>
+
+              <a
+                class="contact-channel-detail contact-channel-link"
+                href="mailto:<%= company.email %>"
+              >
+                <%= company.email %>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="contact-form-card" id="contact-form-card">
+        <h3 class="contact-form-card-title">
+          <%= t('contact.formTitle') %>
+        </h3>
+
+        <p class="contact-form-card-note">
+          <%= t('contact.formNote') %>
+        </p>
+
+        <div
+          id="contact-form-status"
+          class="contact-form-status"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        ></div>
+
+        <form
+          id="contact-page-form"
+          class="contact-page-form"
+          novalidate
+          data-error-required="<%= t('contact.errRequired') %>"
+          data-error-email="<%= t('contact.errEmail') %>"
+          data-error-form-summary="<%= t('contact.errFormSummary') %>"
+          data-error-spam="<%= t('contact.errSpam') %>"
+          data-submit-opening="<%= t('contact.submitOpening') %>"
+          data-submit="<%= t('contact.submit') %>"
+          data-mail-body-full-name="<%= t('contact.mailBodyFullName') %>"
+          data-mail-body-email="<%= t('contact.mailBodyEmail') %>"
+          data-mail-body-subject="<%= t('contact.mailBodySubject') %>"
+          data-mail-body-message="<%= t('contact.mailBodyMessage') %>"
+        >
+          <div class="contact-honeypot" aria-hidden="true">
+            <label for="contact-page-company">
+              Company
+            </label>
+
+            <input
+              id="contact-page-company"
+              name="company"
+              type="text"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="contact-field-row">
+            <div class="field contact-field-line">
+              <label
+                class="contact-field-label"
+                for="contact-page-full-name"
+              >
+                <%= t('contact.fullNameLabel') %>
+              </label>
+
+              <input
+                id="contact-page-full-name"
+                name="fullName"
+                type="text"
+                autocomplete="name"
+                required
+              />
+            </div>
+
+            <div class="field contact-field-line">
+              <label
+                class="contact-field-label"
+                for="contact-page-email"
+              >
+                <%= t('contact.emailFieldLabel') %>
+              </label>
+
+              <input
+                id="contact-page-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="field contact-field-line">
+            <label
+              class="contact-field-label"
+              for="contact-page-subject"
+            >
+              <%= t('contact.subjectLabel') %>
+            </label>
+
+            <input
+              id="contact-page-subject"
+              name="subject"
+              type="text"
+              autocomplete="off"
+              required
+            />
+          </div>
+
+          <div class="field contact-field-line contact-field-line--message">
+            <div class="contact-field-label-row">
+              <label
+                class="contact-field-label"
+                for="contact-page-message"
+              >
+                <%= t('contact.messageLabel') %>
+              </label>
+
+              <span
+                class="contact-message-count"
+                id="contact-message-count"
+                aria-live="off"
+              >
+                0 / 1000
+              </span>
+            </div>
+
+            <textarea
+              id="contact-page-message"
+              name="message"
+              rows="4"
+              maxlength="1000"
+              required
+              aria-describedby="contact-message-count"
+            ></textarea>
+          </div>
+
+          <div class="contact-form-actions">
+            <button
+              type="submit"
+              class="contact-submit-btn"
+            >
+              <span>
+                <%= t('contact.submit') %>
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="contact-map-block">
+      <p class="visually-hidden">
+        <%= t('contact.mapLabel') %>
+      </p>
+
+      <iframe
+        class="contact-map-frame"
+        title="<%= t('contact.mapLabel') %>"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3218.9479530868457!2d37.1023588317688!3d36.21645997963291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152ff7001b9dd96f%3A0xdc0e2d7a0223abb!2z2LTYsdmD2Kkg2KPYs9in2LMg2KfZhNmC2KfYqNi22KkgQXNhcyBIb2xkaW5n!5e0!3m2!1sar!2snl!4v1788246427338!5m2!1sar!2snl"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
+
+  <section
+    class="contact-faq"
+    aria-labelledby="contact-faq-title"
+  >
+    <div class="contact-shell contact-faq-inner">
+      <header class="contact-faq-header">
+        <h2
+          id="contact-faq-title"
+          class="contact-faq-title"
+        >
+          <%= t('contact.faqTitle') %>
+        </h2>
+
+        <p class="contact-faq-sub">
+          <%= t('contact.faqSub') %>
+        </p>
+      </header>
+
+      <div
+        class="contact-faq-list"
+        id="contact-faq-list"
+      >
+        <div class="contact-faq-item">
+          <h3 class="contact-faq-heading">
+            <button
+              type="button"
+              class="contact-faq-trigger"
+              aria-expanded="false"
+              aria-controls="contact-faq-panel-1"
+              id="contact-faq-btn-1"
+            >
+              <span>
+                <%= t('contact.faq1Q') %>
+              </span>
+
+              <svg
+                class="icon icon-sm contact-faq-icon"
+                aria-hidden="true"
+              >
+                <use href="#icon-chevron-down"></use>
+              </svg>
+            </button>
+          </h3>
+
+          <div
+            class="contact-faq-panel"
+            id="contact-faq-panel-1"
+            role="region"
+            aria-labelledby="contact-faq-btn-1"
+            hidden
+          >
+            <div class="contact-faq-panel-inner">
+              <p>
+                <%= t('contact.faq1A') %>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-faq-item">
+          <h3 class="contact-faq-heading">
+            <button
+              type="button"
+              class="contact-faq-trigger"
+              aria-expanded="false"
+              aria-controls="contact-faq-panel-2"
+              id="contact-faq-btn-2"
+            >
+              <span>
+                <%= t('contact.faq2Q') %>
+              </span>
+
+              <svg
+                class="icon icon-sm contact-faq-icon"
+                aria-hidden="true"
+              >
+                <use href="#icon-chevron-down"></use>
+              </svg>
+            </button>
+          </h3>
+
+          <div
+            class="contact-faq-panel"
+            id="contact-faq-panel-2"
+            role="region"
+            aria-labelledby="contact-faq-btn-2"
+            hidden
+          >
+            <div class="contact-faq-panel-inner">
+              <p>
+                <%= t('contact.faq2A') %>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-faq-item">
+          <h3 class="contact-faq-heading">
+            <button
+              type="button"
+              class="contact-faq-trigger"
+              aria-expanded="false"
+              aria-controls="contact-faq-panel-3"
+              id="contact-faq-btn-3"
+            >
+              <span>
+                <%= t('contact.faq3Q') %>
+              </span>
+
+              <svg
+                class="icon icon-sm contact-faq-icon"
+                aria-hidden="true"
+              >
+                <use href="#icon-chevron-down"></use>
+              </svg>
+            </button>
+          </h3>
+
+          <div
+            class="contact-faq-panel"
+            id="contact-faq-panel-3"
+            role="region"
+            aria-labelledby="contact-faq-btn-3"
+            hidden
+          >
+            <div class="contact-faq-panel-inner">
+              <p>
+                <%= t('contact.faq3A') %>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-faq-item">
+          <h3 class="contact-faq-heading">
+            <button
+              type="button"
+              class="contact-faq-trigger"
+              aria-expanded="false"
+              aria-controls="contact-faq-panel-4"
+              id="contact-faq-btn-4"
+            >
+              <span>
+                <%= t('contact.faq4Q') %>
+              </span>
+
+              <svg
+                class="icon icon-sm contact-faq-icon"
+                aria-hidden="true"
+              >
+                <use href="#icon-chevron-down"></use>
+              </svg>
+            </button>
+          </h3>
+
+          <div
+            class="contact-faq-panel"
+            id="contact-faq-panel-4"
+            role="region"
+            aria-labelledby="contact-faq-btn-4"
+            hidden
+          >
+            <div class="contact-faq-panel-inner">
+              <p>
+                <%= t('contact.faq4A') %>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-faq-item">
+          <h3 class="contact-faq-heading">
+            <button
+              type="button"
+              class="contact-faq-trigger"
+              aria-expanded="false"
+              aria-controls="contact-faq-panel-5"
+              id="contact-faq-btn-5"
+            >
+              <span>
+                <%= t('contact.faq5Q') %>
+              </span>
+
+              <svg
+                class="icon icon-sm contact-faq-icon"
+                aria-hidden="true"
+              >
+                <use href="#icon-chevron-down"></use>
+              </svg>
+            </button>
+          </h3>
+
+          <div
+            class="contact-faq-panel"
+            id="contact-faq-panel-5"
+            role="region"
+            aria-labelledby="contact-faq-btn-5"
+            hidden
+          >
+            <div class="contact-faq-panel-inner">
+              <p>
+                <%= t('contact.faq5A') %>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-faq-item">
+          <h3 class="contact-faq-heading">
+            <button
+              type="button"
+              class="contact-faq-trigger"
+              aria-expanded="false"
+              aria-controls="contact-faq-panel-6"
+              id="contact-faq-btn-6"
+            >
+              <span>
+                <%= t('contact.faq6Q') %>
+              </span>
+
+              <svg
+                class="icon icon-sm contact-faq-icon"
+                aria-hidden="true"
+              >
+                <use href="#icon-chevron-down"></use>
+              </svg>
+            </button>
+          </h3>
+
+          <div
+            class="contact-faq-panel"
+            id="contact-faq-panel-6"
+            role="region"
+            aria-labelledby="contact-faq-btn-6"
+            hidden
+          >
+            <div class="contact-faq-panel-inner">
+              <p>
+                <%= t('contact.faq6A') %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+```
